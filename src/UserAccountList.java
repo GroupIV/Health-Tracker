@@ -49,6 +49,20 @@ public class UserAccountList implements Serializable {
 		return false;
 	}
 	
+	void printAccounts(){
+		String name = new String();
+		if (accountList.isEmpty()) {
+			System.out.print("\nThere are no user accounts currently registered\n");
+		}
+		else {
+			for(int i = 0; i<accountList.size(); i++){
+				name = accountList.get(i).getFirstName() + accountList.get(i).getLastName();
+				System.out.print("\n" + name + "\n");
+			}
+		}
+		
+	}
+	
 	void saveAccountList(){
 		String filename = "persistantList";
 		
