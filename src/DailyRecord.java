@@ -1,15 +1,15 @@
 public class DailyRecord {
 	// Attributes
 	private double cardio;
-	double strength;
-	double work;
-	double sleep;
-	double systolicBP;
-	double diastolicBP;
-	double weight;
-	double caloriesConsumed;
-	double bloodSugar;
-	double pulse;
+	private double strength;
+	private double work;
+	private double sleep;
+	private double systolicBP;
+	private double diastolicBP;
+	private double weight;
+	private double caloriesConsumed;
+	private double bloodSugar;
+	private double pulse;
 
 	// Methods
 	public// Constructor - Only way to set values, since daily records, once
