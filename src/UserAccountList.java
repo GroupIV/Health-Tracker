@@ -49,7 +49,7 @@ public class UserAccountList implements Serializable {
 		return false;
 	}
 	
-	void printAccounts(){
+	void printAccounts(){ //New method for printing out accounts
 		String name = new String();
 		if (accountList.isEmpty()) {
 			System.out.print("\nThere are no user accounts currently registered\n");
