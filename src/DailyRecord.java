@@ -1,5 +1,13 @@
-public class DailyRecord {
+//Class: DailyRecord
+//Description: Documents all the statistics needed for health tracking. Contains a date object to keep track of when
+//		       the data was submitted as well as making comparing daily record dates possible.
+
+import java.util.Calendar;
+import java.io.Serializable;
+
+public class DailyRecord implements Serializable {
 	// Attributes
+	private Calendar submittedDate; 
 	private double cardio;
 	private double strength;
 	private double work;
@@ -28,6 +36,7 @@ public class DailyRecord {
 		caloriesConsumed = caloriesConsumedIni;
 		bloodSugar = bloodSugarIni;
 		pulse = pulseIni;
+		submittedDate = Calendar.getInstance();
 	}
 
 	// Access methods for all values of DailyRecord.
@@ -70,4 +79,10 @@ public class DailyRecord {
 	double getPulse() {
 		return pulse;
 	}
+	
+	Calendar getDate() {
+		return submittedDate;
+	}
+	
+	
 }
