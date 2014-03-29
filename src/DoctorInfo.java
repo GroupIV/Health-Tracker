@@ -3,7 +3,9 @@
 //  Description: Class to contain all the information needed from a health care professional. Every user account has
 // 				 doctor info.
 
-public class DoctorInfo {
+import java.io.Serializable;
+
+public class DoctorInfo implements Serializable {
 	
 	//Attributes
 	private String firstName;
