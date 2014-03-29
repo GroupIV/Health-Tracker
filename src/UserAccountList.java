@@ -1,7 +1,7 @@
 // Class Name: UserAccountList
 // Description: Holds the list of user accounts and associated methods.
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.*;
 
 public class UserAccountList implements Serializable {
@@ -50,11 +50,110 @@ public class UserAccountList implements Serializable {
 	}
 	
 	void saveAccountList(){
-		//To be filled in at another time. Saves the account list to a file to give the program some permanence.
+		String filename = "persistantList";
+		
+		FileOutputStream fileOutput = null;
+        ObjectOutputStream outStream = null;
+        
+        try {
+     	   
+     	   fileOutput = new FileOutputStream(filename);
+     	   outStream = new ObjectOutputStream (fileOutput);
+     	   
+     	   outStream.writeObject(accountList);
+     	   System.out.print(filename + " was written\n");
+     	   
+        }
+        
+        catch (NotSerializableException exception){
+     	   
+     	   System.out.println("NotSerializableException");
+     	   
+        }
+        
+        catch (IOException exception) {
+     	   
+     	   System.out.println("IOException");
+     	   
+        }
+        
+        finally {
+     	   try{
+     		   
+     		   if (outStream != null) {
+     			   
+     			   outStream.close();
+     			   
+     		   }
+     		   
+     	   }
+     	   catch (IOException exception){
+     		   
+     		   System.out.println(exception);
+     		   
+     	   }
+     	   
+        }
 	}
 	
 	void loadAccountList(){
-		//To be filled in at another time. Loads the account list from a file.
+		
+		String filename = "persistantList";
+		
+		FileInputStream file = null;
+        ObjectInputStream inStream = null;
+        
+        try {
+     	   
+     	   file = new FileInputStream (filename);
+     	   inStream = new ObjectInputStream(file);
+     	   
+     	   Object accountListTemp = inStream.readObject();
+     	   
+     	   if (accountListTemp instanceof List) {
+     		   
+     		   accountList = (List<UserAccount>)accountListTemp;
+     		   
+     		   System.out.print(filename + " was read\n");
+     		   
+     	   }
+     	   
+        }
+        catch (ClassNotFoundException exception) {
+     	   
+     	   System.out.println("Class was not found");
+
+        }
+        
+        catch (FileNotFoundException exception) {
+     	   
+     	   System.out.println(filename + " was not found");
+     	   
+        }
+        
+        catch (IOException exception) {
+     	   
+     	   System.out.println("IOException");
+     	   
+        }
+        
+        finally {
+     	   
+     	   try {
+     		   
+     		   if (inStream != null){
+     			   
+     			   inStream.close();
+     			   
+     		   }
+     		   
+     	   }
+     	   catch (IOException exception) {
+     		   
+     		   System.out.println(exception);
+     		   
+     	   }
+        }
 	}
 	
 	
