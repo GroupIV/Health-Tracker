@@ -8,7 +8,6 @@ public class HealthTracker {
 	public static UserAccount currentAccount = null;
 	public static UserAccountList listOfAccounts;
 
-	public static HealthTracker singleton;
 	
 	public static void chooseAccountMenu(){
 		
@@ -252,20 +251,20 @@ public class HealthTracker {
 	 
 	 public HealthTracker() {
 			listOfAccounts = new UserAccountList();
-			listOfAccounts.loadAccountList();
+			//listOfAccounts.loadAccountList();
 		}
 	
 	public static void main(String args[]) {
-		singleton = new HealthTracker();
+		HealthTracker thing = new HealthTracker();
 		
 		do{
-		if (currentAccount == null){
+		if (thing.currentAccount == null){
 			chooseAccountMenu();
 		}
 		else {
 			mainMenu();
 		}
-		} while (currentAccount == null);
+		} while (thing.currentAccount == null);
 		
 	}
 }

@@ -51,8 +51,11 @@ public class UserAccountList implements Serializable {
 	
 	void printAccounts(){ //New method for printing out accounts
 		String name = new String();
-		if (accountList.isEmpty()) {
+		if (accountList !=null && accountList.isEmpty()) {
 			System.out.print("\nThere are no user accounts currently registered\n");
+		}
+		if(accountList == null) {
+			System.out.print("ERROR");
 		}
 		else {
 			for(int i = 0; i<accountList.size(); i++){
