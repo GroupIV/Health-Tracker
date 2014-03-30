@@ -208,9 +208,14 @@ public class HealthTracker {
 		        	 		break;
 		        	 	case 'V': // View Monthly Records
 		        	 		//Do some monthly Record Stuff
+		        	 		
+		        	 		
 		        	 		break;
 		        	 	case 'C': // Choose another account
-		                    break;
+		        	 		listOfAccounts.deleteUser(currentAccount.getLastName(), currentAccount.getFirstName());
+		        	 		listOfAccounts.addUserAccount(currentAccount);
+		        	 		currentAccount = null;
+		        	 		return;
 		        	 	case '?': //Display Help (just reprint the options)
 		        	 		printMainMenu();
 		        	 		break;
