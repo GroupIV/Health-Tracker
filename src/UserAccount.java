@@ -1,15 +1,19 @@
 //CSE 360 Group IV Project "Health Tracker"
 //This class should create a new User Account, and have methods to get all data of a User Account
 
-public class UserAccount {
+import java.util.*;
+import java.io.Serializable;
+
+public class UserAccount implements Comparable, Serializable{
 	
 //Data
 	String firstName;
 	String lastName;
 	int age;
 	boolean gender;
-	ArrayList<DailyRecord> dailyRecords;
+	List<DailyRecord> dailyRecords;
 	DoctorInfo doctor;
+	Calendar activationDate;
 	
 public UserAccount(String newFirstName, String newLastName, int newAge, boolean newGender, DoctorInfo newDoctor)
 {
@@ -18,6 +22,8 @@ public UserAccount(String newFirstName, String newLastName, int newAge, boolean 
 	age = newAge;
 	gender = newGender;
 	doctor = newDoctor;
+	activationDate = Calendar.getInstance();
+	dailyRecords = new ArrayList<DailyRecord>();
 }
 
 public String getLastName()
@@ -40,21 +46,51 @@ public boolean getGender()
 	return gender;
 }
 
-public void addDailyRecord(newDailyRecord)
+public boolean addDailyRecord(DailyRecord newDailyRecord)
 {
-	DailyRecord(newDailyRecord);
+	Calendar currentDay = Calendar.getInstance();
+	
+	if (dailyRecords.isEmpty() || dailyRecords.get(dailyRecords.size()).getDate().DAY_OF_YEAR != currentDay.DAY_OF_YEAR && dailyRecords.get(dailyRecords.size()).getDate().YEAR == currentDay.YEAR){
+		dailyRecords.add(newDailyRecord);
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
-public DailyRecord getDailyRecord(Int)   
-//I'm assuming that Int is a DailyRecord 
-
+public List<DailyRecord> getDailyRecords()   
 {
-	return "Cardio: " + Int.cardio + "\nStrenth: " + Int.strength + "\nSleep: " + Int.sleep + "\nSystolicBP: " + Int.systolicBP + "\nWeight: " + Int.weight + "\nCalories Consumed: " + Int.caloriesConsumed + "\nBlood Sugar: " + Int.bloodSugar + "\nPulse: " + Int.pulse;
+	return dailyRecords;
 }
 
-public Doctorinfo getDoctor()
+public DoctorInfo getDoctor()
 {
 	return doctor;
+}
+
+
+//Gives the ability to compare user accounts to one another for sorting in the accounts list.
+public int compareTo(Object other){
+	//find the result of the comparison between the two lastNames.
+			int result = this.lastName.compareTo(((UserAccount)other).getLastName());
+			//If the brandNames aren't equal return the result
+			if (result != 0) {
+				
+				return result;
+				
+			}
+			
+			//If the lastNames are equal
+			else {
+				
+				//find the result of the comparison between the two firstNames.
+				result = this.firstName.compareTo(((UserAccount)other).getFirstName());
+				
+				return result;
+					
+				
+			}
 }
 
 }
