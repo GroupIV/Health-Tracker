@@ -23,6 +23,7 @@ public UserAccount(String newFirstName, String newLastName, int newAge, boolean 
 	gender = newGender;
 	doctor = newDoctor;
 	activationDate = Calendar.getInstance();
+	dailyRecords = new ArrayList<DailyRecord>();
 }
 
 public String getLastName()
