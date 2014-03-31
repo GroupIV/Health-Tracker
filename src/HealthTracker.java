@@ -45,9 +45,9 @@ public class HealthTracker {
 	                    firstNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's Last Name:\n");
 	                    lastNameInput = stdin.readLine().trim();
-	                    
-	                    currentAccount = listOfAccounts.getUser(lastNameInput, firstNameInput);
-	                    
+	                    if (listOfAccounts.getUser(lastNameInput, firstNameInput) != null){
+	                    	currentAccount = listOfAccounts.getUser(lastNameInput, firstNameInput);
+	                    }
 	                    if(currentAccount == null){
 	                    	System.out.print("user not found, please try again");
 	                    }

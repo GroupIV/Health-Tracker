@@ -7,7 +7,7 @@ import java.util.*;
 public class UserAccountList implements Serializable {
 
 	//Attributes
-	public List<UserAccount> accountList;
+	public List<UserAccount> accountList = new ArrayList<UserAccount>();
 	
 	//Methods
 	UserAccount getUser(String lastName, String firstName) {
