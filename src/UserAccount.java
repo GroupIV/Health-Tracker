@@ -50,12 +50,12 @@ public boolean addDailyRecord(DailyRecord newDailyRecord)
 {
 	Calendar currentDay = Calendar.getInstance();
 	
-	if ((newDailyRecord.getDate().DAY_OF_YEAR == currentDay.DAY_OF_YEAR) && (newDailyRecord.getDate().YEAR == currentDay.YEAR)){
-		return false;
-	}
-	else {
+	if (dailyRecords.isEmpty() || dailyRecords.get(dailyRecords.size()).getDate().DAY_OF_YEAR != currentDay.DAY_OF_YEAR && dailyRecords.get(dailyRecords.size()).getDate().YEAR == currentDay.YEAR){
 		dailyRecords.add(newDailyRecord);
 		return true;
+	}
+	else {
+		return false;
 	}
 }
 
