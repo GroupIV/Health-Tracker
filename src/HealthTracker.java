@@ -51,7 +51,7 @@ public class HealthTracker {
 	                    if(currentAccount == null){
 	                    	System.out.print("user not found, please try again");
 	                    }
-	                    break;
+	                    return;
 	        	 	case 'R': //Create Account
 	        	 		
 	        	 		System.out.print("Please enter user's First Name:\n");
@@ -151,7 +151,7 @@ public class HealthTracker {
 		      {
 		       // print out the menu
 				listOfAccounts.printAccounts();
-		       printChooseAccountMenu();
+		       printMainMenu();
 
 		       // create a BufferedReader object to read input from a keyboard
 		       InputStreamReader isr = new InputStreamReader (System.in);
@@ -258,7 +258,7 @@ public class HealthTracker {
 		if (thing.currentAccount == null){
 			chooseAccountMenu();
 		}
-		else {
+		if (thing.currentAccount != null) {
 			mainMenu();
 		}
 		} while (thing.currentAccount == null);
