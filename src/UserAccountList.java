@@ -10,6 +10,13 @@ public class UserAccountList implements Serializable {
 	public List<UserAccount> accountList;
 	
 	//Methods
+	
+	public UserAccountList() {
+	
+		accountList = new ArrayList<UserAccount>();
+	
+	}
+	
 	UserAccount getUser(String lastName, String firstName) {
 		if(accountList.isEmpty()){
 			return null;
@@ -59,7 +66,7 @@ public class UserAccountList implements Serializable {
 		}
 		else {
 			for(int i = 0; i<accountList.size(); i++){
-				name = accountList.get(i).getFirstName() + accountList.get(i).getLastName();
+				name = accountList.get(i).getFirstName() + " " + accountList.get(i).getLastName();
 				System.out.print("\n" + name + "\n");
 			}
 		}

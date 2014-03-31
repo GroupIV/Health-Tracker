@@ -45,32 +45,29 @@ public class HealthTracker {
 	                    firstNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's Last Name:\n");
 	                    lastNameInput = stdin.readLine().trim();
-	                    
-	                    currentAccount = listOfAccounts.getUser(lastNameInput, firstNameInput);
-	                    
+	                    if (listOfAccounts.getUser(lastNameInput, firstNameInput) != null){
+	                    	currentAccount = listOfAccounts.getUser(lastNameInput, firstNameInput);
+	                    }
 	                    if(currentAccount == null){
 	                    	System.out.print("user not found, please try again");
 	                    }
-	                    break;
+	                    return;
 	        	 	case 'R': //Create Account
-	        	 		Scanner scan = new Scanner(System.in);
 	        	 		
 	        	 		System.out.print("Please enter user's First Name:\n");
 	                    firstNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's Last Name:\n");
 	                    lastNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's age:\n");
-	                    age = scan.nextInt();
+	                    age = Integer.parseInt(stdin.readLine().trim());
 	                    System.out.print("Please enter user's gender. 1: Male, 2: Female");
-	                    genderInt = scan.nextInt();
+	                    genderInt = Integer.parseInt(stdin.readLine().trim());
 	                    if(genderInt ==1){
 	                    	gender = false;
 	                    }
 	                    else {
 	                    	gender = true;
 	                    }
-	                    
-	                    lastNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's doctor's first name:\n");
 	                    doctorFirst = stdin.readLine().trim();
 	                    System.out.print("Please enter user's doctor's Last Name:\n");
@@ -154,7 +151,7 @@ public class HealthTracker {
 		      {
 		       // print out the menu
 				listOfAccounts.printAccounts();
-		       printChooseAccountMenu();
+		       printMainMenu();
 
 		       // create a BufferedReader object to read input from a keyboard
 		       InputStreamReader isr = new InputStreamReader (System.in);
@@ -261,7 +258,7 @@ public class HealthTracker {
 		if (thing.currentAccount == null){
 			chooseAccountMenu();
 		}
-		else {
+		if (thing.currentAccount != null) {
 			mainMenu();
 		}
 		} while (thing.currentAccount == null);
