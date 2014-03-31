@@ -66,7 +66,7 @@ public class UserAccountList implements Serializable {
 		}
 		else {
 			for(int i = 0; i<accountList.size(); i++){
-				name = accountList.get(i).getFirstName() + accountList.get(i).getLastName();
+				name = accountList.get(i).getFirstName() + " " + accountList.get(i).getLastName();
 				System.out.print("\n" + name + "\n");
 			}
 		}
