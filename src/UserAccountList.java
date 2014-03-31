@@ -7,9 +7,16 @@ import java.util.*;
 public class UserAccountList implements Serializable {
 
 	//Attributes
-	public List<UserAccount> accountList = new ArrayList<UserAccount>();
+	public List<UserAccount> accountList;
 	
 	//Methods
+	
+	public UserAccountList() {
+	
+		accountList = new ArrayList<UserAccount>();
+	
+	}
+	
 	UserAccount getUser(String lastName, String firstName) {
 		if(accountList.isEmpty()){
 			return null;
