@@ -53,24 +53,21 @@ public class HealthTracker {
 	                    }
 	                    break;
 	        	 	case 'R': //Create Account
-	        	 		Scanner scan = new Scanner(System.in);
 	        	 		
 	        	 		System.out.print("Please enter user's First Name:\n");
 	                    firstNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's Last Name:\n");
 	                    lastNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's age:\n");
-	                    age = scan.nextInt();
+	                    age = Integer.parseInt(stdin.readLine().trim());
 	                    System.out.print("Please enter user's gender. 1: Male, 2: Female");
-	                    genderInt = scan.nextInt();
+	                    genderInt = Integer.parseInt(stdin.readLine().trim());
 	                    if(genderInt ==1){
 	                    	gender = false;
 	                    }
 	                    else {
 	                    	gender = true;
 	                    }
-	                    
-	                    lastNameInput = stdin.readLine().trim();
 	                    System.out.print("Please enter user's doctor's first name:\n");
 	                    doctorFirst = stdin.readLine().trim();
 	                    System.out.print("Please enter user's doctor's Last Name:\n");
