@@ -61,7 +61,7 @@ public class ChooseAccountMenu extends JFrame {
 		 */
 		chooseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		chooseButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
