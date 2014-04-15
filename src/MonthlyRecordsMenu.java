@@ -1,3 +1,6 @@
+//Name: MonthlyRecordsMenu
+//Description: Defines the JFrame for the monthly records menu.
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,6 +12,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Canvas;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class MonthlyRecordsMenu extends JFrame {
@@ -17,7 +22,7 @@ public class MonthlyRecordsMenu extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,7 +35,7 @@ public class MonthlyRecordsMenu extends JFrame {
 			}
 		});
 	}
-
+	 */
 	/**
 	 * Create the frame.
 	 */
@@ -53,11 +58,27 @@ public class MonthlyRecordsMenu extends JFrame {
 		contentPane.add(titleLabel);
 		
 		JButton backButton = new JButton("Back to Main Menu");
+		/*
+		 * Back Button Action Listener
+		 */
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		backButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		backButton.setBounds(10, 538, 134, 23);
 		contentPane.add(backButton);
 		
 		JButton printButton = new JButton("Print");
+		/*
+		 * Print Button Action Listener
+		 */
+		printButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		printButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		printButton.setBounds(663, 539, 89, 23);
 		contentPane.add(printButton);

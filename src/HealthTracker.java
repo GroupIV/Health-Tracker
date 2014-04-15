@@ -2,15 +2,28 @@
 //Description: Contains the main function and the list of accounts. Also contains all the menus in this iteration.
 
 import java.util.*;
+import java.awt.EventQueue;
 import java.io.*;
 
 public class HealthTracker {
 	public static UserAccount currentAccount = null;
 	public static UserAccountList listOfAccounts;
 
-	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainMenu frame = new MainMenu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	/*	
 	public static void chooseAccountMenu(){
-		
+
 		char input1;
 		String firstNameInput = new String(), doctorFirst = new String();
 		String lastNameInput = new String(), doctorLast = new String();
@@ -250,7 +263,7 @@ public class HealthTracker {
 			listOfAccounts = new UserAccountList();
 			//listOfAccounts.loadAccountList();
 		}
-	/*
+
 	public static void main(String args[]) {
 		HealthTracker thing = new HealthTracker();
 		

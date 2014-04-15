@@ -1,3 +1,6 @@
+//Name: MainMenu
+//Description: Defines the JFrame for the menu menu.
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,6 +12,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.ActionListener;
 
 
 public class MainMenu extends JFrame {
@@ -37,7 +44,7 @@ public class MainMenu extends JFrame {
 	public MainMenu() {
 		setTitle("Main Menu");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 560, 430);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -65,24 +72,55 @@ public class MainMenu extends JFrame {
 		contentPane.add(userNameLabel);
 		
 		JButton enterDailyRecordButton = new JButton("Enter Daily Record");
+		/*
+		 * Enter Daily Record Button Action Listener
+		 */
+		enterDailyRecordButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		enterDailyRecordButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		enterDailyRecordButton.setBounds(202, 180, 142, 39);
 		contentPane.add(enterDailyRecordButton);
 		
 		JButton viewStatisticsButton = new JButton("View Statistics");
+		/*
+		 * View Statistics Button Action Listener 
+		 */
+		viewStatisticsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		viewStatisticsButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		viewStatisticsButton.setBounds(202, 230, 142, 39);
 		contentPane.add(viewStatisticsButton);
 		
 		JButton changeAccountButton = new JButton("Change Account");
+		/*
+		 * Change Account Button Action Listener
+		 */
+		changeAccountButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		changeAccountButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		changeAccountButton.setBounds(202, 280, 142, 39);
 		contentPane.add(changeAccountButton);
 		
 		JButton quitButton = new JButton("Quit Program");
+		/*
+		 * Quit Button Action Listener
+		 */
+		quitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		quitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		quitButton.setBounds(202, 330, 142, 39);
 		contentPane.add(quitButton);
 	}
-
 }

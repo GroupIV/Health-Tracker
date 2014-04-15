@@ -1,3 +1,6 @@
+//Name: ChooseAccountMenu
+//Description: Defines the JFrame for the choose account menu.
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,6 +12,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ChooseAccountMenu extends JFrame {
 
@@ -51,16 +56,40 @@ public class ChooseAccountMenu extends JFrame {
 		contentPane.add(titleLabel);
 		
 		JButton chooseButton = new JButton("Choose Account");
+		/*
+		 * Choose Button Action Listener
+		 */
+		chooseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		chooseButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		chooseButton.setBounds(10, 112, 119, 23);
 		contentPane.add(chooseButton);
 		
 		JButton deleteButton = new JButton("Delete Account");
+		/*
+		 * Delete Button Action Listener
+		 */
+		deleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		deleteButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		deleteButton.setBounds(139, 112, 119, 23);
 		contentPane.add(deleteButton);
 		
 		JButton createButton = new JButton("Create Account");
+		/*
+		 * Create Button Action Listener
+		 */
+		createButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		createButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		createButton.setBounds(268, 113, 119, 23);
 		contentPane.add(createButton);

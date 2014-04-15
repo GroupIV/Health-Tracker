@@ -1,3 +1,6 @@
+//Name: CreateNewAccountMenu
+//Description: Defines the JFrame for the create new account menu.
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,6 +16,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class CreateNewAccountMenu extends JFrame {
@@ -174,11 +179,27 @@ public class CreateNewAccountMenu extends JFrame {
 		contentPane.add(separator);
 		
 		JButton cancelButton = new JButton("Cancel");
+		/*
+		 * Cancel Button Action Listener
+		 */
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		cancelButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		cancelButton.setBounds(10, 368, 89, 23);
 		contentPane.add(cancelButton);
 		
 		JButton submitButton = new JButton("Submit");
+		/*
+		 * Submit Button Action Listener
+		 */
+		submitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		submitButton.setBounds(455, 368, 89, 23);
 		contentPane.add(submitButton);
