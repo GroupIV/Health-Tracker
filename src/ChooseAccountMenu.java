@@ -16,7 +16,7 @@ public class ChooseAccountMenu extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -29,7 +29,7 @@ public class ChooseAccountMenu extends JFrame {
 			}
 		});
 	}
-
+	 */
 	/**
 	 * Create the frame.
 	 */
