@@ -250,7 +250,7 @@ public class HealthTracker {
 			listOfAccounts = new UserAccountList();
 			//listOfAccounts.loadAccountList();
 		}
-	
+	/*
 	public static void main(String args[]) {
 		HealthTracker thing = new HealthTracker();
 		
@@ -264,4 +264,5 @@ public class HealthTracker {
 		} while (thing.currentAccount == null);
 		
 	}
+	*/
 }
