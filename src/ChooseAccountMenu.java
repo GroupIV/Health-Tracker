@@ -84,12 +84,19 @@ public class ChooseAccountMenu extends JFrame {
 		createButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		createButton.setBounds(268, 113, 119, 23);
 		contentPane.add(createButton);
+/*
+		//Create array of user names
+		String[] comboList = new String[HealthTracker.listOfAccounts.getSize()];
 		
+		for (int i = 0;i < HealthTracker.listOfAccounts.getSize();i++)
+		{
+			comboList[i] = HealthTracker.listOfAccounts.getUserIndex(i).getFirstName() + " " + HealthTracker.listOfAccounts.getUserIndex(i).getLastName();
+		}
+*/
 		JComboBox accountListComboBox = new JComboBox();
 		accountListComboBox.setMaximumRowCount(20);
 		accountListComboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		accountListComboBox.setBounds(10, 73, 274, 20);
 		contentPane.add(accountListComboBox);
-		
 	}
 }

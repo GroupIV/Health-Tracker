@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
@@ -18,12 +19,14 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 
 public class CreateNewAccountMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
 	 * Create the frame.
@@ -59,7 +62,7 @@ public class CreateNewAccountMenu extends JFrame {
 		userFirstNameLabel.setBounds(10, 63, 80, 16);
 		contentPane.add(userFirstNameLabel);
 		
-		JFormattedTextField userFirstNameField = new JFormattedTextField();
+		final JFormattedTextField userFirstNameField = new JFormattedTextField();
 		userFirstNameField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		userFirstNameField.setBounds(10, 90, 228, 20);
 		contentPane.add(userFirstNameField);
@@ -70,7 +73,7 @@ public class CreateNewAccountMenu extends JFrame {
 		userLastNameLabel.setBounds(10, 121, 80, 16);
 		contentPane.add(userLastNameLabel);
 		
-		JFormattedTextField userLastNameField = new JFormattedTextField();
+		final JFormattedTextField userLastNameField = new JFormattedTextField();
 		userLastNameField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		userLastNameField.setBounds(10, 148, 228, 20);
 		contentPane.add(userLastNameField);
@@ -93,12 +96,12 @@ public class CreateNewAccountMenu extends JFrame {
 		userGenderLabel.setBounds(10, 303, 64, 16);
 		contentPane.add(userGenderLabel);
 		
-		JFormattedTextField userAgeField = new JFormattedTextField();
+		final JFormattedTextField userAgeField = new JFormattedTextField();
 		userAgeField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		userAgeField.setBounds(10, 212, 64, 20);
 		contentPane.add(userAgeField);
 		
-		JFormattedTextField userHeightField = new JFormattedTextField();
+		final JFormattedTextField userHeightField = new JFormattedTextField();
 		userHeightField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		userHeightField.setBounds(10, 272, 64, 20);
 		contentPane.add(userHeightField);
@@ -109,7 +112,7 @@ public class CreateNewAccountMenu extends JFrame {
 		doctorFirstNameLabel.setBounds(286, 63, 80, 16);
 		contentPane.add(doctorFirstNameLabel);
 		
-		JFormattedTextField doctorFirstNameField = new JFormattedTextField();
+		final JFormattedTextField doctorFirstNameField = new JFormattedTextField();
 		doctorFirstNameField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		doctorFirstNameField.setBounds(286, 91, 228, 20);
 		contentPane.add(doctorFirstNameField);
@@ -120,7 +123,7 @@ public class CreateNewAccountMenu extends JFrame {
 		doctorLastNameLabel.setBounds(286, 125, 80, 16);
 		contentPane.add(doctorLastNameLabel);
 		
-		JFormattedTextField doctorLastNameField = new JFormattedTextField();
+		final JFormattedTextField doctorLastNameField = new JFormattedTextField();
 		doctorLastNameField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		doctorLastNameField.setBounds(286, 149, 228, 20);
 		contentPane.add(doctorLastNameField);
@@ -131,7 +134,7 @@ public class CreateNewAccountMenu extends JFrame {
 		doctorAddressLabel.setBounds(286, 182, 80, 16);
 		contentPane.add(doctorAddressLabel);
 		
-		JFormattedTextField doctorAddressField = new JFormattedTextField();
+		final JFormattedTextField doctorAddressField = new JFormattedTextField();
 		doctorAddressField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		doctorAddressField.setBounds(286, 212, 228, 20);
 		contentPane.add(doctorAddressField);
@@ -142,7 +145,7 @@ public class CreateNewAccountMenu extends JFrame {
 		doctorEmailLabel.setBounds(286, 245, 80, 16);
 		contentPane.add(doctorEmailLabel);
 		
-		JFormattedTextField doctorEmailField = new JFormattedTextField();
+		final JFormattedTextField doctorEmailField = new JFormattedTextField();
 		doctorEmailField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		doctorEmailField.setBounds(286, 272, 228, 20);
 		contentPane.add(doctorEmailField);
@@ -153,7 +156,7 @@ public class CreateNewAccountMenu extends JFrame {
 		doctorPhoneLabel.setBounds(286, 303, 107, 16);
 		contentPane.add(doctorPhoneLabel);
 		
-		JFormattedTextField doctorPhoneField = new JFormattedTextField();
+		final JFormattedTextField doctorPhoneField = new JFormattedTextField();
 		doctorPhoneField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		doctorPhoneField.setBounds(286, 330, 228, 20);
 		contentPane.add(doctorPhoneField);
@@ -164,6 +167,21 @@ public class CreateNewAccountMenu extends JFrame {
 		separator.setBackground(new Color(176, 196, 222));
 		separator.setBounds(262, 11, 2, 349);
 		contentPane.add(separator);
+
+		final JRadioButton maleButton = new JRadioButton("Male");
+		buttonGroup.add(maleButton);
+		maleButton.setSelected(true);
+		maleButton.setBackground(new Color(255, 255, 255));
+		maleButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		maleButton.setBounds(10, 330, 47, 23);
+		contentPane.add(maleButton);
+		
+		final JRadioButton femaleButton = new JRadioButton("Female");
+		buttonGroup.add(femaleButton);
+		femaleButton.setBackground(new Color(255, 255, 255));
+		femaleButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		femaleButton.setBounds(59, 329, 64, 23);
+		contentPane.add(femaleButton);
 		
 		JButton cancelButton = new JButton("Cancel");
 		/*
@@ -186,26 +204,57 @@ public class CreateNewAccountMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openChooseFrame();
-				setVisible(false);
-				dispose();
+				if (!userFirstNameField.getText().trim().equals("")
+					&& !userLastNameField.getText().trim().equals("")
+					&& !userAgeField.getText().trim().equals("")
+					&& !userHeightField.getText().trim().equals("")
+					&& !doctorFirstNameField.getText().trim().equals("")
+					&& !doctorLastNameField.getText().trim().equals("")
+					&& !doctorAddressField.getText().trim().equals("")
+					&& !doctorEmailField.getText().trim().equals("")
+					&& !doctorPhoneField.getText().trim().equals(""))
+				{
+					if (Integer.parseInt(userAgeField.getText()) < 0 || Integer.parseInt(userHeightField.getText()) < 0){
+						JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+							    "Invalid data in one of the fields.",
+							    "Input error",
+							    JOptionPane.ERROR_MESSAGE);
+					}
+					else{
+					
+						DoctorInfo DITemp = new DoctorInfo(doctorFirstNameField.getText(),doctorLastNameField.getText(),doctorAddressField.getText(),doctorEmailField.getText(),doctorPhoneField.getText());
+						
+						boolean tempGender = false;
+						if (femaleButton.isSelected()){
+							tempGender = true;
+						}
+						
+						UserAccount UATemp = new UserAccount(userFirstNameField.getText(),userLastNameField.getText(),Integer.parseInt(userAgeField.getText()),Integer.parseInt(userHeightField.getText()),tempGender,DITemp);
+						
+						if(HealthTracker.listOfAccounts.addUserAccount(UATemp)){
+							ctrl.openChooseFrame();
+							setVisible(false);
+							dispose();						
+						}
+						else{
+							JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+								    "Account with this name already exists.",
+								    "Add Account error",
+								    JOptionPane.ERROR_MESSAGE);
+						}
+					}								
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+					    "Not all fields have been filled.",
+					    "Input error",
+					    JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		submitButton.setBounds(455, 368, 89, 23);
 		contentPane.add(submitButton);
-		
-		JRadioButton maleButton = new JRadioButton("Male");
-		maleButton.setSelected(true);
-		maleButton.setBackground(new Color(255, 255, 255));
-		maleButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		maleButton.setBounds(10, 330, 47, 23);
-		contentPane.add(maleButton);
-		
-		JRadioButton femaleButton = new JRadioButton("Female");
-		femaleButton.setBackground(new Color(255, 255, 255));
-		femaleButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		femaleButton.setBounds(59, 329, 64, 23);
-		contentPane.add(femaleButton);
 	}
 }

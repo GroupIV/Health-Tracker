@@ -10,16 +10,18 @@ public class UserAccount implements Comparable, Serializable{
 	String firstName;
 	String lastName;
 	int age;
+	int height;
 	boolean gender;
 	List<DailyRecord> dailyRecords;
 	DoctorInfo doctor;
 	Calendar activationDate;
 	
-public UserAccount(String newFirstName, String newLastName, int newAge, boolean newGender, DoctorInfo newDoctor)
+public UserAccount(String newFirstName, String newLastName, int newAge, int newHeight, boolean newGender, DoctorInfo newDoctor)
 {
 	firstName = newFirstName;
 	lastName = newLastName;
 	age = newAge;
+	height = newHeight;
 	gender = newGender;
 	doctor = newDoctor;
 	activationDate = Calendar.getInstance();
@@ -39,6 +41,11 @@ public String getFirstName()
 public int getAge()
 {
 	return age;
+}
+
+public int getHeight()
+{
+	return height;
 }
 
 public boolean getGender()

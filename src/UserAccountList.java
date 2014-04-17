@@ -29,6 +29,16 @@ public class UserAccountList implements Serializable {
 		return null;
 	}
 	
+	UserAccount getUserIndex(int i){
+		if(accountList.isEmpty()){
+			return null;
+		}
+		else if (i >= 0 && i < accountList.size()){
+			return accountList.get(i);
+		}
+		return null;
+	}
+	
 	boolean addUserAccount(UserAccount newUser){
 		UserAccount temp = getUser(newUser.getLastName(), newUser.getFirstName());
 		
@@ -54,6 +64,10 @@ public class UserAccountList implements Serializable {
 		}
 		
 		return false;
+	}
+	
+	int getSize(){
+		return accountList.size();
 	}
 	
 	void printAccounts(){ //New method for printing out accounts
@@ -119,7 +133,7 @@ public class UserAccountList implements Serializable {
      	   
         }
 	}
-	
+
 	void loadAccountList(){
 		
 		String filename = "persistantList";
