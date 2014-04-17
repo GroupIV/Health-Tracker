@@ -22,12 +22,16 @@ public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
+	private UserAccount currentAccount = null;
+	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu(FrameController fc) {
+	public MainMenu(FrameController fc, UserAccount ca, UserAccountList al) {
 		ctrl = fc;
+		currentAccount = ca;
+		accountList = al;
 		
 		setTitle("Main Menu");
 		setResizable(false);

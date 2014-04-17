@@ -20,12 +20,16 @@ public class MonthlyRecordsMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
+	private UserAccount currentAccount = null;
+	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public MonthlyRecordsMenu(FrameController fc) {
+	public MonthlyRecordsMenu(FrameController fc, UserAccount ca, UserAccountList al) {
 		ctrl = fc;
+		currentAccount = ca;
+		accountList = al;
 		
 		setTitle("Statistics");
 		setBackground(new Color(255, 255, 255));

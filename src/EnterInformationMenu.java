@@ -22,12 +22,16 @@ public class EnterInformationMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
+	private UserAccount currentAccount = null;
+	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public EnterInformationMenu(FrameController fc) {
+	public EnterInformationMenu(FrameController fc, UserAccount ca, UserAccountList al) {
 		ctrl = fc;
+		currentAccount = ca;
+		accountList = al;
 		
 		setTitle("Enter Daily Record");
 		setResizable(false);

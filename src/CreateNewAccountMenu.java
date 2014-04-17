@@ -19,6 +19,8 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.text.NumberFormat;
+
 import javax.swing.ButtonGroup;
 
 
@@ -26,13 +28,17 @@ public class CreateNewAccountMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
+	private UserAccount currentAccount = null;
+	private UserAccountList accountList = null;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
 	 * Create the frame.
 	 */
-	public CreateNewAccountMenu(FrameController fc) {
+	public CreateNewAccountMenu(FrameController fc, UserAccount ca, UserAccountList al) {
 		ctrl = fc;
+		currentAccount = ca;
+		accountList = al;
 		
 		setTitle("Create a New Account");
 		setResizable(false);
@@ -204,6 +210,7 @@ public class CreateNewAccountMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Check if fields are empty
 				if (!userFirstNameField.getText().trim().equals("")
 					&& !userLastNameField.getText().trim().equals("")
 					&& !userAgeField.getText().trim().equals("")
@@ -214,38 +221,60 @@ public class CreateNewAccountMenu extends JFrame {
 					&& !doctorEmailField.getText().trim().equals("")
 					&& !doctorPhoneField.getText().trim().equals(""))
 				{
-					if (Integer.parseInt(userAgeField.getText()) < 0 || Integer.parseInt(userHeightField.getText()) < 0){
-						JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
-							    "Invalid data in one of the fields.",
-							    "Input error",
-							    JOptionPane.ERROR_MESSAGE);
-					}
-					else{
+					//Create temp storage for int values
+					int tempAge;
+					int tempHeight;
 					
-						DoctorInfo DITemp = new DoctorInfo(doctorFirstNameField.getText(),doctorLastNameField.getText(),doctorAddressField.getText(),doctorEmailField.getText(),doctorPhoneField.getText());
-						
-						boolean tempGender = false;
-						if (femaleButton.isSelected()){
-							tempGender = true;
-						}
-						
-						UserAccount UATemp = new UserAccount(userFirstNameField.getText(),userLastNameField.getText(),Integer.parseInt(userAgeField.getText()),Integer.parseInt(userHeightField.getText()),tempGender,DITemp);
-						
-						if(HealthTracker.listOfAccounts.addUserAccount(UATemp)){
-							ctrl.openChooseFrame();
-							setVisible(false);
-							dispose();						
-						}
-						else{
+					//Attempt conversion of strings to int values
+					try{
+						tempAge = Integer.parseInt(userAgeField.getText());
+						tempHeight = Integer.parseInt(userHeightField.getText());
+					
+						//Check if int values are correct
+						if (tempAge < 0 || tempHeight < 0 || tempAge > 140 || tempHeight > 120){
 							JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
-								    "Account with this name already exists.",
-								    "Add Account error",
+								    "Invalid data in one of the fields.",
+								    "Input error",
 								    JOptionPane.ERROR_MESSAGE);
 						}
-					}								
+						else{
+							//Create temp info from given data
+							String uFNTemp = userFirstNameField.getText();
+							String uLNTemp = userLastNameField.getText();
+							String dFNTemp = doctorFirstNameField.getText();
+							String dLNTemp = doctorLastNameField.getText();
+							String dATemp = doctorAddressField.getText();
+							String dETemp = doctorEmailField.getText();
+							String dPTemp = doctorPhoneField.getText();
+							
+							DoctorInfo DITemp = new DoctorInfo(dFNTemp,dLNTemp,dATemp,dETemp,dPTemp);
+							
+							boolean tempGender = false;
+							if (femaleButton.isSelected()){
+								tempGender = true;
+							}
+
+							//Attempt to add account
+							if(accountList.addUserAccount(new UserAccount(uFNTemp,uLNTemp,tempAge,tempHeight,tempGender,DITemp))){
+								ctrl.openChooseFrame();
+								setVisible(false);
+								dispose();						
+							}
+							else{
+								JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+									    "Account with this name already exists.",
+									    "Add Account error",
+									    JOptionPane.ERROR_MESSAGE);
+							}
+						}	
+					} catch (NumberFormatException ne){
+						JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+							    "Incorrect value types entered.",
+							    "Input error",
+							    JOptionPane.ERROR_MESSAGE);						
+					}							
 				}
-				else
-				{
+				else{
 					JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
 					    "Not all fields have been filled.",
 					    "Input error",

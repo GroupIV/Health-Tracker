@@ -8,10 +8,6 @@ import java.io.*;
 import javax.swing.JFrame;
 
 public class HealthTracker {
-	//Static (Global) Program Variables
-	public static UserAccount currentAccount = null;
-	public static UserAccountList listOfAccounts;
-
 	/*
 	 * Main Function
 	 */
@@ -20,7 +16,10 @@ public class HealthTracker {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-						FrameController fc = new FrameController();
+					 	UserAccount currentAccount = null;
+					 	UserAccountList listOfAccounts = new UserAccountList();
+					
+						FrameController fc = new FrameController(currentAccount,listOfAccounts);
 						fc.openChooseFrame();
 					} catch (Exception e) {
 					e.printStackTrace();
