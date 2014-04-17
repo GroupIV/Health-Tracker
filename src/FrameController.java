@@ -33,9 +33,10 @@ public class FrameController {
 		chooseFrame.setVisible(true);		
 	}
 	
-	public void openMainFrame()
+	public void openMainFrame(UserAccount ca)
 	{
-		mainFrame = new MainMenu(this,currentAccount,accountList);
+		UserAccount mainCAccount = ca;
+		mainFrame = new MainMenu(this,mainCAccount,accountList);
 		mainFrame.setVisible(true);
 	}
 	

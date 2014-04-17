@@ -74,7 +74,8 @@ public class ChooseAccountMenu extends JFrame {
 						    JOptionPane.WARNING_MESSAGE);				
 				}
 				else{
-					ctrl.openMainFrame();
+					currentAccount = accountList.getUserIndex(accountListComboBox.getSelectedIndex());
+					ctrl.openMainFrame(currentAccount);
 					setVisible(false);
 					dispose();
 				}

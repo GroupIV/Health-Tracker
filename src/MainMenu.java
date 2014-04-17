@@ -55,7 +55,7 @@ public class MainMenu extends JFrame {
 		helloLabel.setBounds(241, 107, 64, 30);
 		contentPane.add(helloLabel);
 		
-		JLabel userNameLabel = new JLabel("<Account Name>");
+		JLabel userNameLabel = new JLabel(currentAccount.getFirstName() + " " + currentAccount.getLastName());
 		userNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		userNameLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 20));
 		userNameLabel.setForeground(new Color(25, 25, 112));

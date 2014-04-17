@@ -54,7 +54,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		 */
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame();
+				ctrl.openMainFrame(currentAccount);
 				setVisible(false);
 				dispose();
 			}

@@ -139,7 +139,7 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame();
+				ctrl.openMainFrame(currentAccount);
 				setVisible(false);
 				dispose();
 			}
@@ -154,7 +154,7 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame();
+				ctrl.openMainFrame(currentAccount);
 				setVisible(false);
 				dispose();
 			}
