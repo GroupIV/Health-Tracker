@@ -18,30 +18,17 @@ import java.awt.event.ActionEvent;
 public class ChooseAccountMenu extends JFrame {
 
 	private JPanel contentPane;
+	private FrameController ctrl = null;
 
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ChooseAccountMenu frame = new ChooseAccountMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	 */
 	/**
 	 * Create the frame.
 	 */
-	public ChooseAccountMenu() {
+	public ChooseAccountMenu(FrameController fc) {
+		ctrl = fc;
+		
 		setTitle("Choose an Account");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 405, 180);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -61,7 +48,9 @@ public class ChooseAccountMenu extends JFrame {
 		 */
 		chooseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				ctrl.openMainFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		chooseButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -87,7 +76,9 @@ public class ChooseAccountMenu extends JFrame {
 		 */
 		createButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openCreateFrame();
+				setVisible(false);
+				dispose();				
 			}
 		});
 		createButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));

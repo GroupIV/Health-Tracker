@@ -19,31 +19,18 @@ import java.awt.event.ActionEvent;
 public class MonthlyRecordsMenu extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MonthlyRecordsMenu frame = new MonthlyRecordsMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	 */
+	private FrameController ctrl = null;
+	
 	/**
 	 * Create the frame.
 	 */
-	public MonthlyRecordsMenu() {
+	public MonthlyRecordsMenu(FrameController fc) {
+		ctrl = fc;
+		
 		setTitle("Statistics");
 		setBackground(new Color(255, 255, 255));
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 768, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -63,7 +50,9 @@ public class MonthlyRecordsMenu extends JFrame {
 		 */
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openMainFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		backButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));

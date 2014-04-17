@@ -5,98 +5,29 @@ import java.util.*;
 import java.awt.EventQueue;
 import java.io.*;
 
+import javax.swing.JFrame;
+
 public class HealthTracker {
 	//Static (Global) Program Variables
 	public static UserAccount currentAccount = null;
 	public static UserAccountList listOfAccounts;
-	public static ChooseAccountMenu ChooseAccountFrame;
-	public static CreateNewAccountMenu CreateNewAccountFrame;
-	public static MainMenu MainMenuFrame;
-	public static EnterInformationMenu EnterInformationFrame;
-	public static MonthlyRecordsMenu MonthlyRecordsFrame;
-	
+
 	/*
 	 * Main Function
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChooseAccountFrame = new ChooseAccountMenu();
-					ChooseAccountFrame.setVisible(true);
-				} catch (Exception e) {
+						FrameController fc = new FrameController();
+						fc.openChooseFrame();
+					} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
-	/*
-	 * Switch to Main Menu function
-	 */
-	public static void switchToMainMenu(){
-		ChooseAccountFrame.setVisible(false);
-		CreateNewAccountFrame.setVisible(false);
-		EnterInformationFrame.setVisible(false);
-		MonthlyRecordsFrame.setVisible(false);
-		
-		MainMenuFrame = new MainMenu();
-		MainMenuFrame.setVisible(true);
-	}
-	
-	/*
-	 * Switch to Choose Account Menu function
-	 */
-	public static void switchToChooseAccountMenu(){
-		CreateNewAccountFrame.setVisible(false);
-		MainMenuFrame.setVisible(false);
-		EnterInformationFrame.setVisible(false);
-		MonthlyRecordsFrame.setVisible(false);
-		
-		ChooseAccountFrame = new ChooseAccountMenu();
-		ChooseAccountFrame.setVisible(true);
-	}
-	
-	/*
-	 * Switch to Create New Account Menu function
-	 */
-	public static void switchToCreateNewAccountMenu(){
-		ChooseAccountFrame.setVisible(false);
-		MainMenuFrame.setVisible(false);
-		EnterInformationFrame.setVisible(false);
-		MonthlyRecordsFrame.setVisible(false);
-
-		CreateNewAccountFrame = new CreateNewAccountMenu();
-		CreateNewAccountFrame.setVisible(true);
-	}
-	
-	/*
-	 * Switch to Enter Information Menu function
-	 */
-	
-	public static void switchToEnterInformationMenu(){
-		ChooseAccountFrame.setVisible(false);
-		CreateNewAccountFrame.setVisible(false);
-		MainMenuFrame.setVisible(false);
-		MonthlyRecordsFrame.setVisible(false);	
-		
-		EnterInformationFrame = new EnterInformationMenu();
-		EnterInformationFrame.setVisible(true);
-	}
-	
-	/*
-	 * Switch to Monthly Records Menu function
-	 */
-	public static void switchToMonthlyRecordsMenu(){
-		ChooseAccountFrame.setVisible(false);
-		CreateNewAccountFrame.setVisible(false);
-		MainMenuFrame.setVisible(false);
-		EnterInformationFrame.setVisible(false);
-
-		MonthlyRecordsFrame	= new MonthlyRecordsMenu();
-		MonthlyRecordsFrame.setVisible(true);
-	}
-	
 	
 	/*	
 	public static void chooseAccountMenu(){

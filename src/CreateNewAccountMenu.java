@@ -23,30 +23,17 @@ import java.awt.event.ActionEvent;
 public class CreateNewAccountMenu extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreateNewAccountMenu frame = new CreateNewAccountMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	 */
+	private FrameController ctrl = null;
+	
 	/**
 	 * Create the frame.
 	 */
-	public CreateNewAccountMenu() {
+	public CreateNewAccountMenu(FrameController fc) {
+		ctrl = fc;
+		
 		setTitle("Create a New Account");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 560, 430);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -184,7 +171,9 @@ public class CreateNewAccountMenu extends JFrame {
 		 */
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openChooseFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		cancelButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -197,7 +186,9 @@ public class CreateNewAccountMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openChooseFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));

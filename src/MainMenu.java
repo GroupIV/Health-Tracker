@@ -21,27 +21,14 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainMenu frame = new MainMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	 */
+	private FrameController ctrl = null;
+	
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu() {
+	public MainMenu(FrameController fc) {
+		ctrl = fc;
+		
 		setTitle("Main Menu");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -77,7 +64,9 @@ public class MainMenu extends JFrame {
 		 */
 		enterDailyRecordButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openEnterFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		enterDailyRecordButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -90,7 +79,9 @@ public class MainMenu extends JFrame {
 		 */
 		viewStatisticsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openMonthlyFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		viewStatisticsButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -103,7 +94,9 @@ public class MainMenu extends JFrame {
 		 */
 		changeAccountButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openChooseFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		changeAccountButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));

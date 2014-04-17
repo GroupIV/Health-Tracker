@@ -21,30 +21,17 @@ import java.awt.event.ActionEvent;
 public class EnterInformationMenu extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EnterInformationMenu frame = new EnterInformationMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	 */
+	private FrameController ctrl = null;
+	
 	/**
 	 * Create the frame.
 	 */
-	public EnterInformationMenu() {
+	public EnterInformationMenu(FrameController fc) {
+		ctrl = fc;
+		
 		setTitle("Enter Daily Record");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 560, 370);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -148,7 +135,9 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openMainFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		cancelButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -161,7 +150,9 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ctrl.openMainFrame();
+				setVisible(false);
+				dispose();
 			}
 		});
 		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
