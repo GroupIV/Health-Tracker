@@ -7,48 +7,45 @@ public class FrameController {
 	private MainMenu mainFrame;
 	private EnterInformationMenu enterFrame;
 	private MonthlyRecordsMenu monthlyFrame;
-	private UserAccount currentAccount;
 	private UserAccountList accountList;
 	
-	public FrameController(UserAccount ca, UserAccountList al)
+	public FrameController(UserAccountList al)
 	{
 		createFrame = null;
 		chooseFrame = null;
 		mainFrame = null;
 		enterFrame = null;
 		monthlyFrame = null;
-		currentAccount = ca;
 		accountList = al;
 	}
 	
 	public void openCreateFrame()
 	{
-		createFrame = new CreateNewAccountMenu(this,currentAccount,accountList);
+		createFrame = new CreateNewAccountMenu(this,accountList);
 		createFrame.setVisible(true);
 	}
 	
 	public void openChooseFrame()
 	{
-		chooseFrame = new ChooseAccountMenu(this,currentAccount,accountList);
+		chooseFrame = new ChooseAccountMenu(this,accountList);
 		chooseFrame.setVisible(true);		
 	}
 	
-	public void openMainFrame(UserAccount ca)
+	public void openMainFrame()
 	{
-		UserAccount mainCAccount = ca;
-		mainFrame = new MainMenu(this,mainCAccount,accountList);
+		mainFrame = new MainMenu(this,accountList);
 		mainFrame.setVisible(true);
 	}
 	
 	public void openEnterFrame()
 	{
-		enterFrame = new EnterInformationMenu(this,currentAccount,accountList);
+		enterFrame = new EnterInformationMenu(this,accountList);
 		enterFrame.setVisible(true);
 	}
 	
 	public void openMonthlyFrame()
 	{
-		monthlyFrame = new MonthlyRecordsMenu(this,currentAccount,accountList);
+		monthlyFrame = new MonthlyRecordsMenu(this,accountList);
 		monthlyFrame.setVisible(true);
 	}
 }

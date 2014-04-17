@@ -7,17 +7,18 @@ import java.util.*;
 public class UserAccountList implements Serializable {
 
 	//Attributes
-	public List<UserAccount> accountList;
+	private List<UserAccount> accountList;
+	private UserAccount currentAccount;
 	
 	//Methods
 	
 	public UserAccountList() {
 	
 		accountList = new ArrayList<UserAccount>();
-	
+		currentAccount = null;
 	}
 	
-	UserAccount getUser(String lastName, String firstName) {
+	public UserAccount getUser(String lastName, String firstName) {
 		if(accountList.isEmpty()){
 			return null;
 		}
@@ -29,7 +30,7 @@ public class UserAccountList implements Serializable {
 		return null;
 	}
 	
-	UserAccount getUserIndex(int i){
+	public UserAccount getUserIndex(int i){
 		if(accountList.isEmpty()){
 			return null;
 		}
@@ -39,7 +40,7 @@ public class UserAccountList implements Serializable {
 		return null;
 	}
 	
-	boolean addUserAccount(UserAccount newUser){
+	public boolean addUserAccount(UserAccount newUser){
 		UserAccount temp = getUser(newUser.getLastName(), newUser.getFirstName());
 		
 		if(temp != null && temp.getLastName().equals(newUser.getLastName()) && temp.getFirstName().equals(newUser.getFirstName())){
@@ -51,7 +52,7 @@ public class UserAccountList implements Serializable {
 		}
 	}
 	
-	boolean deleteUser(String lastName, String firstName){
+	public boolean deleteUser(String lastName, String firstName){
 		if(accountList.isEmpty()){
 			return false;
 		}
@@ -66,11 +67,19 @@ public class UserAccountList implements Serializable {
 		return false;
 	}
 	
-	int getSize(){
+	public int getSize(){
 		return accountList.size();
 	}
 	
-	void printAccounts(){ //New method for printing out accounts
+	public void setCurrentAccount(UserAccount ca){
+		currentAccount = ca;
+	}
+	
+	public UserAccount getCurrentAccount(){
+		return currentAccount;
+	}
+	
+	public void printAccounts(){ //New method for printing out accounts
 		String name = new String();
 		if (accountList !=null && accountList.isEmpty()) {
 			System.out.print("\nThere are no user accounts currently registered\n");
@@ -87,7 +96,7 @@ public class UserAccountList implements Serializable {
 		
 	}
 	
-	void saveAccountList(){
+	public void saveAccountList(){
 		String filename = "persistantList";
 		
 		FileOutputStream fileOutput = null;
@@ -134,7 +143,7 @@ public class UserAccountList implements Serializable {
         }
 	}
 
-	void loadAccountList(){
+	public void loadAccountList(){
 		
 		String filename = "persistantList";
 		

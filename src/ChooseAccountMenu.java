@@ -20,15 +20,13 @@ public class ChooseAccountMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
-	private UserAccount currentAccount = null;
 	private UserAccountList accountList = null;
 
 	/**
 	 * Create the frame.
 	 */
-	public ChooseAccountMenu(FrameController fc, UserAccount ca, UserAccountList al) {
+	public ChooseAccountMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
-		currentAccount = ca;
 		accountList = al;
 		
 		setTitle("Choose an Account");
@@ -74,8 +72,8 @@ public class ChooseAccountMenu extends JFrame {
 						    JOptionPane.WARNING_MESSAGE);				
 				}
 				else{
-					currentAccount = accountList.getUserIndex(accountListComboBox.getSelectedIndex());
-					ctrl.openMainFrame(currentAccount);
+					accountList.setCurrentAccount(accountList.getUserIndex(accountListComboBox.getSelectedIndex()));
+					ctrl.openMainFrame();
 					setVisible(false);
 					dispose();
 				}

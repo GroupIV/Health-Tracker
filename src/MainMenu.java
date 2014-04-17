@@ -22,15 +22,13 @@ public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
-	private UserAccount currentAccount = null;
 	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu(FrameController fc, UserAccount ca, UserAccountList al) {
+	public MainMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
-		currentAccount = ca;
 		accountList = al;
 		
 		setTitle("Main Menu");
@@ -55,7 +53,7 @@ public class MainMenu extends JFrame {
 		helloLabel.setBounds(241, 107, 64, 30);
 		contentPane.add(helloLabel);
 		
-		JLabel userNameLabel = new JLabel(currentAccount.getFirstName() + " " + currentAccount.getLastName());
+		JLabel userNameLabel = new JLabel(accountList.getCurrentAccount().getFirstName() + " " + accountList.getCurrentAccount().getLastName());
 		userNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		userNameLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 20));
 		userNameLabel.setForeground(new Color(25, 25, 112));

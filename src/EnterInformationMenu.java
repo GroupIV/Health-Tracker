@@ -22,15 +22,13 @@ public class EnterInformationMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
-	private UserAccount currentAccount = null;
 	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public EnterInformationMenu(FrameController fc, UserAccount ca, UserAccountList al) {
+	public EnterInformationMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
-		currentAccount = ca;
 		accountList = al;
 		
 		setTitle("Enter Daily Record");
@@ -139,7 +137,7 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame(currentAccount);
+				ctrl.openMainFrame();
 				setVisible(false);
 				dispose();
 			}
@@ -154,7 +152,7 @@ public class EnterInformationMenu extends JFrame {
 		 */
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame(currentAccount);
+				ctrl.openMainFrame();
 				setVisible(false);
 				dispose();
 			}

@@ -16,10 +16,9 @@ public class HealthTracker {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					 	UserAccount currentAccount = null;
 					 	UserAccountList listOfAccounts = new UserAccountList();
 					
-						FrameController fc = new FrameController(currentAccount,listOfAccounts);
+						FrameController fc = new FrameController(listOfAccounts);
 						fc.openChooseFrame();
 					} catch (Exception e) {
 					e.printStackTrace();

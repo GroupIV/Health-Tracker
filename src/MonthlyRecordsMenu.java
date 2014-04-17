@@ -20,15 +20,13 @@ public class MonthlyRecordsMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
-	private UserAccount currentAccount = null;
 	private UserAccountList accountList = null;
 	
 	/**
 	 * Create the frame.
 	 */
-	public MonthlyRecordsMenu(FrameController fc, UserAccount ca, UserAccountList al) {
+	public MonthlyRecordsMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
-		currentAccount = ca;
 		accountList = al;
 		
 		setTitle("Statistics");
@@ -54,7 +52,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		 */
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame(currentAccount);
+				ctrl.openMainFrame();
 				setVisible(false);
 				dispose();
 			}

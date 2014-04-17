@@ -28,16 +28,14 @@ public class CreateNewAccountMenu extends JFrame {
 
 	private JPanel contentPane;
 	private FrameController ctrl = null;
-	private UserAccount currentAccount = null;
 	private UserAccountList accountList = null;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	/**
 	 * Create the frame.
 	 */
-	public CreateNewAccountMenu(FrameController fc, UserAccount ca, UserAccountList al) {
+	public CreateNewAccountMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
-		currentAccount = ca;
 		accountList = al;
 		
 		setTitle("Create a New Account");

@@ -24,6 +24,14 @@ public class DoctorInfo implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 	
+	public DoctorInfo (){
+		this.firstName = "DFName";
+		this.lastName = "DLName";
+		this.address = "DAddress";
+		this.email = "DEmail";
+		this.phoneNumber = "DPhone";		
+	}
+	
 	//Methods
 	public String getFirstName() {
 		return firstName;
