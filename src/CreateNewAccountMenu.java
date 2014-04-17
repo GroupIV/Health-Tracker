@@ -255,16 +255,25 @@ public class CreateNewAccountMenu extends JFrame {
 							}
 
 							//Attempt to add account
-							if(accountList.addUserAccount(new UserAccount(uFNTemp,uLNTemp,tempAge,tempHeight,tempGender,DITemp))){
-								ctrl.openChooseFrame();
-								setVisible(false);
-								dispose();						
+							//Check if the amount of accounts has hit the limit (20).
+							if (accountList.getSize() < 20){
+								if(accountList.addUserAccount(new UserAccount(uFNTemp,uLNTemp,tempAge,tempHeight,tempGender,DITemp))){
+									ctrl.openChooseFrame();
+									setVisible(false);
+									dispose();						
+								}
+								else{
+									JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
+										    "Account with this name already exists.",
+										    "Add Account error",
+										    JOptionPane.ERROR_MESSAGE);
+								}
 							}
 							else{
 								JOptionPane.showMessageDialog(CreateNewAccountMenu.this,
-									    "Account with this name already exists.",
+									    "No more accounts can be added.",
 									    "Add Account error",
-									    JOptionPane.ERROR_MESSAGE);
+									    JOptionPane.ERROR_MESSAGE);								
 							}
 						}	
 					} catch (NumberFormatException ne){

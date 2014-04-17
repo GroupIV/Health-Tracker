@@ -46,6 +46,20 @@ public class ChooseAccountMenu extends JFrame {
 		titleLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 30));
 		titleLabel.setBounds(10, 11, 274, 51);
 		contentPane.add(titleLabel);
+
+		//Create array of user names
+		String[] comboList = new String[accountList.getSize()];
+		
+		for (int i = 0;i < accountList.getSize();i++)
+		{
+			comboList[i] = accountList.getUserIndex(i).getFirstName() + " " + accountList.getUserIndex(i).getLastName();
+		}
+		
+		final JComboBox<String> accountListComboBox = new JComboBox<String>(comboList);
+		accountListComboBox.setMaximumRowCount(20);
+		accountListComboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		accountListComboBox.setBounds(10, 73, 274, 20);
+		contentPane.add(accountListComboBox);
 		
 		JButton chooseButton = new JButton("Choose Account");
 		/*
@@ -76,6 +90,7 @@ public class ChooseAccountMenu extends JFrame {
 		 */
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Do any accounts exist for deletion?
 				if (accountList.getSize() == 0){
 					JOptionPane.showMessageDialog(ChooseAccountMenu.this,
 						    "No accounts exist to delete. Create one.",
@@ -83,7 +98,20 @@ public class ChooseAccountMenu extends JFrame {
 						    JOptionPane.WARNING_MESSAGE);				
 				}
 				else{
-					
+					//Check if user wants to delete
+					int n = JOptionPane.showConfirmDialog(
+						    ChooseAccountMenu.this,
+						    "Are you sure you want to delete " + accountListComboBox.getSelectedItem() + "?",
+						    "Delete Account",
+						    JOptionPane.YES_NO_OPTION);
+					//If so, delete
+					if (n == 0){
+						UserAccount toDelete = accountList.getUserIndex(accountListComboBox.getSelectedIndex());
+						accountList.deleteUser(toDelete.getLastName(),toDelete.getFirstName());
+						ctrl.openChooseFrame();
+						setVisible(false);
+						dispose();									
+					}
 				}
 			}
 		});
@@ -105,19 +133,5 @@ public class ChooseAccountMenu extends JFrame {
 		createButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		createButton.setBounds(268, 113, 119, 23);
 		contentPane.add(createButton);
-
-		//Create array of user names
-		String[] comboList = new String[accountList.getSize()];
-		
-		for (int i = 0;i < accountList.getSize();i++)
-		{
-			comboList[i] = accountList.getUserIndex(i).getFirstName() + " " + accountList.getUserIndex(i).getLastName();
-		}
-		
-		JComboBox<String> accountListComboBox = new JComboBox<String>(comboList);
-		accountListComboBox.setMaximumRowCount(20);
-		accountListComboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		accountListComboBox.setBounds(10, 73, 274, 20);
-		contentPane.add(accountListComboBox);
 	}
 }
