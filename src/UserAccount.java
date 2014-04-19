@@ -28,6 +28,17 @@ public UserAccount(String newFirstName, String newLastName, int newAge, int newH
 	dailyRecords = new ArrayList<DailyRecord>();
 }
 
+public UserAccount(String newFirstName, String newLastName){
+	firstName = newFirstName;
+	lastName = newLastName;
+	age = 0;
+	height = 0;
+	gender = true;
+	doctor = new DoctorInfo();
+	activationDate = Calendar.getInstance();
+	dailyRecords = new ArrayList<DailyRecord>();	
+}
+
 public UserAccount()
 {
 	firstName = "FName";
