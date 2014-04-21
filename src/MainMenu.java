@@ -111,6 +111,7 @@ public class MainMenu extends JFrame {
 		 */
 		quitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				accountList.saveAccountList();
 				System.exit(0);
 			}
 		});

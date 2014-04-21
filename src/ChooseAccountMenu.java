@@ -8,11 +8,16 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -28,6 +33,13 @@ public class ChooseAccountMenu extends JFrame {
 	public ChooseAccountMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
 		accountList = al;
+		
+		try {
+			accountList.loadAccountList();
+		}
+		catch (Exception e) {
+			System.out.println("Unable to Load Account");
+		}
 		
 		setTitle("Choose an Account");
 		setResizable(false);
@@ -107,6 +119,7 @@ public class ChooseAccountMenu extends JFrame {
 					if (n == 0){
 						UserAccount toDelete = accountList.getUserIndex(accountListComboBox.getSelectedIndex());
 						accountList.deleteUser(toDelete.getLastName(),toDelete.getFirstName());
+						accountList.saveAccountList();
 						ctrl.openChooseFrame();
 						setVisible(false);
 						dispose();									

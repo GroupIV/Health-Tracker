@@ -16,10 +16,13 @@ public class HealthTracker {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					 	UserAccountList listOfAccounts = new UserAccountList();
+					
+						UserAccountList listOfAccounts = new UserAccountList();
+						
 					
 						FrameController fc = new FrameController(listOfAccounts);
 						fc.openChooseFrame();
+						
 					} catch (Exception e) {
 					e.printStackTrace();
 				}

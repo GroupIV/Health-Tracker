@@ -38,6 +38,7 @@ public class CreateNewAccountMenu extends JFrame {
 		ctrl = fc;
 		accountList = al;
 		
+
 		setTitle("Create a New Account");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -256,6 +257,7 @@ public class CreateNewAccountMenu extends JFrame {
 							//Check if the amount of accounts has hit the limit (20).
 							if (accountList.getSize() < 20){
 								if(accountList.addUserAccount(new UserAccount(uFNTemp,uLNTemp,tempAge,tempHeight,tempGender,DITemp))){
+									accountList.saveAccountList();
 									ctrl.openChooseFrame();
 									setVisible(false);
 									dispose();						
