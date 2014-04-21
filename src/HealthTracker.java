@@ -7,6 +7,7 @@ import java.io.*;
 
 import javax.swing.JFrame;
 
+
 public class HealthTracker {
 	/*
 	 * Main Function
@@ -16,7 +17,7 @@ public class HealthTracker {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
+						
 						UserAccountList listOfAccounts = new UserAccountList();
 						
 					
