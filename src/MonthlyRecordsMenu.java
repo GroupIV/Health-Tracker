@@ -7,13 +7,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
+
+import org.jfree.chart.ChartPanel;
+
 import java.awt.Canvas;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 
 public class MonthlyRecordsMenu extends JFrame {
@@ -28,6 +36,8 @@ public class MonthlyRecordsMenu extends JFrame {
 	public MonthlyRecordsMenu(FrameController fc, UserAccountList al) {
 		ctrl = fc;
 		accountList = al;
+		
+		GraphMonthly graphs = new GraphMonthly(al.getCurrentAccount().getDailyRecords());
 		
 		setTitle("Statistics");
 		setBackground(new Color(255, 255, 255));
@@ -80,10 +90,9 @@ public class MonthlyRecordsMenu extends JFrame {
 		cardioLabel.setBounds(10, 59, 121, 23);
 		contentPane.add(cardioLabel);
 		
-		Canvas cardioCanvas = new Canvas();
-		cardioCanvas.setBackground(new Color(230, 230, 250));
-		cardioCanvas.setBounds(10, 88, 168, 122);
-		contentPane.add(cardioCanvas);
+		ChartPanel cardioGraph = graphs.cardioGraph();
+		cardioGraph.setBounds(10, 88, 168, 122);
+		contentPane.add(cardioGraph);
 		
 		Canvas strengthCanvas = new Canvas();
 		strengthCanvas.setBackground(new Color(230, 230, 250));

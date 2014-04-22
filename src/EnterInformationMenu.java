@@ -7,13 +7,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -100,6 +106,13 @@ public class EnterInformationMenu extends JFrame {
 		bloodPressureLabel.setBounds(219, 122, 163, 25);
 		contentPane.add(bloodPressureLabel);
 		
+		JLabel bloodPressureDividerLabel = new JLabel("/");
+		bloodPressureDividerLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		bloodPressureDividerLabel.setForeground(new Color(25, 25, 112));
+		bloodPressureDividerLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
+		bloodPressureDividerLabel.setBounds(440, 122, 8, 25);
+		contentPane.add(bloodPressureDividerLabel);
+		
 		JLabel bloodSugarLabel = new JLabel("Blood Sugar (mg/dL):");
 		bloodSugarLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		bloodSugarLabel.setForeground(new Color(25, 25, 112));
@@ -126,7 +139,7 @@ public class EnterInformationMenu extends JFrame {
 		caloriesLabel.setBounds(244, 266, 138, 25);
 		contentPane.add(caloriesLabel);
 		
-		JFormattedTextField cardioField = new JFormattedTextField();
+		final JFormattedTextField cardioField = new JFormattedTextField();
 		cardioField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		cardioField.setBounds(89, 127, 108, 20);
 		contentPane.add(cardioField);
@@ -146,57 +159,48 @@ public class EnterInformationMenu extends JFrame {
 		cancelButton.setBounds(10, 308, 89, 23);
 		contentPane.add(cancelButton);
 		
-		JButton submitButton = new JButton("Submit");
-		/*
-		 * Submit Button Action Listener
-		 */
-		submitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ctrl.openMainFrame();
-				setVisible(false);
-				dispose();
-			}
-		});
-		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		submitButton.setBounds(455, 308, 89, 23);
-		contentPane.add(submitButton);
 		
-		JFormattedTextField strengthField = new JFormattedTextField();
+		final JFormattedTextField strengthField = new JFormattedTextField();
 		strengthField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		strengthField.setBounds(89, 163, 108, 20);
 		contentPane.add(strengthField);
 		
-		JFormattedTextField workField = new JFormattedTextField();
+		final JFormattedTextField workField = new JFormattedTextField();
 		workField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		workField.setBounds(89, 199, 108, 20);
 		contentPane.add(workField);
 		
-		JFormattedTextField sleepField = new JFormattedTextField();
+		final JFormattedTextField sleepField = new JFormattedTextField();
 		sleepField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		sleepField.setBounds(89, 235, 108, 20);
 		contentPane.add(sleepField);
 		
-		JFormattedTextField bloodPressureField = new JFormattedTextField();
-		bloodPressureField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		bloodPressureField.setBounds(392, 127, 108, 20);
-		contentPane.add(bloodPressureField);
+		final JFormattedTextField systolicBloodPressureField = new JFormattedTextField();
+		systolicBloodPressureField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		systolicBloodPressureField.setBounds(392, 127, 52, 20);
+		contentPane.add(systolicBloodPressureField);
 		
-		JFormattedTextField bloodSugarField = new JFormattedTextField();
+		final JFormattedTextField diastolicBloodPressureField = new JFormattedTextField();
+		diastolicBloodPressureField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		diastolicBloodPressureField.setBounds(448, 127, 52, 20);
+		contentPane.add(diastolicBloodPressureField);
+		
+		final JFormattedTextField bloodSugarField = new JFormattedTextField();
 		bloodSugarField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		bloodSugarField.setBounds(392, 163, 108, 20);
 		contentPane.add(bloodSugarField);
 		
-		JFormattedTextField pulseField = new JFormattedTextField();
+		final JFormattedTextField pulseField = new JFormattedTextField();
 		pulseField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		pulseField.setBounds(392, 199, 108, 20);
 		contentPane.add(pulseField);
 		
-		JFormattedTextField weightField = new JFormattedTextField();
+		final JFormattedTextField weightField = new JFormattedTextField();
 		weightField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		weightField.setBounds(392, 235, 108, 20);
 		contentPane.add(weightField);
 		
-		JFormattedTextField caloriesField = new JFormattedTextField();
+		final JFormattedTextField caloriesField = new JFormattedTextField();
 		caloriesField.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		caloriesField.setBounds(392, 271, 108, 20);
 		contentPane.add(caloriesField);
@@ -207,6 +211,98 @@ public class EnterInformationMenu extends JFrame {
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setBounds(207, 70, 2, 235);
 		contentPane.add(separator);
+		
+		JButton submitButton = new JButton("Submit");
+		/*
+		 * Submit Button Action Listener
+		 */
+		submitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Check if fields are empty
+				if (!strengthField.getText().trim().equals("")
+					&& !cardioField.getText().trim().equals("")
+					&& !bloodSugarField.getText().trim().equals("")
+					&& !caloriesField.getText().trim().equals("")
+					&& !workField.getText().trim().equals("")
+					&& !sleepField.getText().trim().equals("")
+					&& !diastolicBloodPressureField.getText().trim().equals("")
+					&& !systolicBloodPressureField.getText().trim().equals("")
+					&& !weightField.getText().trim().equals("")
+					&& !pulseField.getText().trim().equals(""))
+				{
+					//Create temp storage for int values
+					double tempStrength;
+					double tempCardio;
+					double tempBloodSugar;
+					double tempCalories;
+					double tempWork;
+					double tempSleep;
+					double tempSystolic;
+					double tempDiastolic;
+					double tempWeight;
+					double tempPulse;
+					
+					//Attempt conversion of strings to int values
+					try{
+						tempStrength = Double.parseDouble(strengthField.getText());
+						tempCardio = Double.parseDouble(cardioField.getText());
+						tempBloodSugar = Double.parseDouble(bloodSugarField.getText());
+						tempCalories = Double.parseDouble(caloriesField.getText());
+						tempWork = Double.parseDouble(workField.getText());
+						tempSleep = Double.parseDouble(sleepField.getText());
+						tempSystolic = Double.parseDouble(systolicBloodPressureField.getText());
+						tempDiastolic = Double.parseDouble(diastolicBloodPressureField.getText());
+						tempWeight = Double.parseDouble(weightField.getText());
+						tempPulse = Double.parseDouble(pulseField.getText());
+						
+					
+						//Check if int values are correct
+						if (tempStrength < 0 || tempCardio < 0 || tempBloodSugar < 0 || tempCalories < 0 || tempWork < 0 || tempSleep < 0 || tempSystolic < 0 || tempDiastolic < 0 || tempWeight < 0 || tempPulse < 0){
+							JOptionPane.showMessageDialog(EnterInformationMenu.this,
+								    "Invalid data in one of the fields.",
+								    "Input error",
+								    JOptionPane.ERROR_MESSAGE);
+						}
+						else{
+							
+							//Attempt to add account
+							//Check if the amount of accounts has hit the limit (20).
+							if (true){
+								if(accountList.getCurrentAccount().addDailyRecord(new DailyRecord(tempCardio, tempStrength, tempWork,
+										tempSleep, tempSystolic, tempDiastolic,
+										tempWeight, tempCalories, tempBloodSugar,
+										tempPulse))){
+									accountList.saveAccountList();
+									ctrl.openMainFrame();
+									setVisible(false);
+									dispose();						
+								}
+								else{
+									JOptionPane.showMessageDialog(EnterInformationMenu.this,
+										    "Daily Record Already Exists For Today.",
+										    "DailyRecord Error",
+										    JOptionPane.ERROR_MESSAGE);
+								}
+							}
+						}	
+					} catch (NumberFormatException ne){
+						JOptionPane.showMessageDialog(EnterInformationMenu.this,
+							    "Incorrect value types entered.",
+							    "Input error",
+							    JOptionPane.ERROR_MESSAGE);						
+					}							
+				}
+				else{
+					JOptionPane.showMessageDialog(EnterInformationMenu.this,
+					    "Not all fields have been filled.",
+					    "Input error",
+					    JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		submitButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		submitButton.setBounds(455, 308, 89, 23);
+		contentPane.add(submitButton);
 	}
 
 }
