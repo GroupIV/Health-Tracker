@@ -1,9 +1,9 @@
-Testing Report
+						Testing Report
 
 Introduction
 The objective of testing the program is to ensure that the product being delivered meets the requirements and standards of the customer. Testing each aspect of the program makes certain that the program is delivering its function even if an error occurs thus proving a product that is both versatile and robust. The methods tested in this documentation for unit test cases are: addAccount, deleteAccount, getUser and addDailyRecord. Each unit test case will  The methods tested in this documentation for integration test planning are: User changed account, user deleted account, user created new account and user entered daily information.
 
-Testing
+TESTING
 Unit Test Case (getUser)
 public UserAccount getUser(String lastName, String firstName)
 Given the last and first names of a person, this method should search the account list data structure in UserAccountList for any accounts that match the last and first name of that person.  If it does find an account with those names it returns it. Otherwise, it returns null. This functionality can be used both to retrieve an account and check for its existence.
@@ -143,14 +143,7 @@ After unit and integration testing it is apparent that this function is indeed c
 
 
 
-
-
-
-
-
-
-
-System Testing
+SYSTEM TESTING
 
 Recovery Testing: A non-functional testing done in order to maintain how efficiently the software can recover after it has gone through a crash or hardware failure. This is importantly relatable to our project in that the software’s ability to recover after a crash can save data from the users stored making it more convenient to the user.
 
@@ -161,7 +154,7 @@ Stress Testing: Software testing done in order to determine the level of robustn
 Performance Testing: General testing done in order to determine how a system performs in terms of responsiveness and stability over a given capacity. This is importantly relatable to our project in that it serves to investigate, measure, validate or verify other quality attributes of the software, such as reliability, resource usage and scalability.
 
 
-Conclusion
+CONCLUSION
 
 	The purpose of the CSE360 class project is for students to get used to the many organizational structures and development practices used by companies in the software industry to bring a product to fruition. Towards these ends, our group decided to choose to develop a more restrained health tracking program: not skimping on important features, but also not putting too much energy into building something overelaborate while not paying much mind to the more pressing matter of learning the class material. Keeping reasonable expectations as to what we could create really helped simplify the whole process and reduced group stress. In the end, our hard work resulted in a product which resembled the original vision very closely. 
 
