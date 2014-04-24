@@ -6,8 +6,10 @@ import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Color;
@@ -41,6 +43,8 @@ public class MonthlyRecordsMenu extends JFrame {
 		accountList = al;
 		
 		GraphMonthly graphs = new GraphMonthly(al.getCurrentAccount().getDailyRecords());
+		MonthlyRecord averages = new MonthlyRecord(al.getCurrentAccount().getDailyRecords());
+		Border border = BorderFactory.createLineBorder(Color.GRAY, 2);
 		
 		setTitle("Statistics");
 		setBackground(new Color(255, 255, 255));
@@ -166,15 +170,80 @@ public class MonthlyRecordsMenu extends JFrame {
 		caloriesLabel.setBounds(10, 376, 121, 23);
 		contentPane.add(caloriesLabel);
 		
-		Canvas scoreCanvas = new Canvas();
-		scoreCanvas.setBounds(205, 438, 457, 88);
-		contentPane.add(scoreCanvas);
+		JPanel averagePanel = new JPanel();
+		averagePanel.setBounds(205, 404, 457, 95);
+		contentPane.add(averagePanel);
 		
-		JLabel scoreLabel = new JLabel("Health Score:");
+		JLabel cardioAverageLabel = new JLabel (averages.cardioAverage());
+		cardioAverageLabel.setBorder(border);
+		cardioAverageLabel.setForeground(new Color(25, 25, 112));
+		cardioAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(cardioAverageLabel);
+		
+		JLabel strengthAverageLabel = new JLabel (averages.strengthAverage());
+		strengthAverageLabel.setBorder(border);
+		strengthAverageLabel.setForeground(new Color(25, 25, 112));
+		strengthAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(strengthAverageLabel);
+		
+		JLabel workAverageLabel = new JLabel (averages.workAverage());
+		workAverageLabel.setBorder(border);
+		workAverageLabel.setForeground(new Color(25, 25, 112));
+		workAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(workAverageLabel);
+		
+		JLabel sleepAverageLabel = new JLabel (averages.sleepAverage());
+		sleepAverageLabel.setBorder(border);
+		sleepAverageLabel.setForeground(new Color(25, 25, 112));
+		sleepAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(sleepAverageLabel);
+		
+		
+		JLabel systolicBPAverageLabel = new JLabel (averages.systolicAverage());
+		systolicBPAverageLabel.setBorder(border);
+		systolicBPAverageLabel.setForeground(new Color(25, 25, 112));
+		systolicBPAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(systolicBPAverageLabel);
+		
+		JLabel diastolicBPAverageLabel = new JLabel (averages.diastolicAverage());
+		diastolicBPAverageLabel.setBorder(border);
+		diastolicBPAverageLabel.setForeground(new Color(25, 25, 112));
+		diastolicBPAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(diastolicBPAverageLabel);
+		
+		
+		JLabel bloodSugarAverageLabel = new JLabel (averages.bloodSugarAverage());
+		bloodSugarAverageLabel.setBorder(border);
+		bloodSugarAverageLabel.setForeground(new Color(25, 25, 112));
+		bloodSugarAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(bloodSugarAverageLabel);
+		
+		JLabel pulseAverageLabel = new JLabel (averages.pulseAverage());
+		pulseAverageLabel.setBorder(border);
+		pulseAverageLabel.setForeground(new Color(25, 25, 112));
+		pulseAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(pulseAverageLabel);
+		
+		JLabel weightAverageLabel = new JLabel (averages.weightAverage());
+		weightAverageLabel.setBorder(border);
+		weightAverageLabel.setForeground(new Color(25, 25, 112));
+		weightAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(weightAverageLabel);
+		
+		JLabel caloriesAverageLabel = new JLabel (averages.caloriesAverage());
+		caloriesAverageLabel.setBorder(border);
+		caloriesAverageLabel.setForeground(new Color(25, 25, 112));
+		caloriesAverageLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		averagePanel.add(caloriesAverageLabel);
+	
+		
+		
+		JLabel scoreLabel = new JLabel("Health Metric Averages:");
 		scoreLabel.setForeground(new Color(25, 25, 112));
 		scoreLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 20));
-		scoreLabel.setBounds(205, 404, 129, 28);
+		scoreLabel.setBounds(205, 370, 350, 28);
 		contentPane.add(scoreLabel);
+		
 		
 		
 		JButton printButton = new JButton("Print");
@@ -199,7 +268,7 @@ public class MonthlyRecordsMenu extends JFrame {
                         }
                     }
                 });
-                boolean ok =job.printDialog();
+                boolean ok = job.printDialog();
                 try {
                     job.print();
                     String PrintedStatus = "Confirmation was Successfully Printed on your Default Printer";
