@@ -71,18 +71,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		backButton.setBounds(10, 538, 134, 23);
 		contentPane.add(backButton);
 		
-		JButton printButton = new JButton("Print");
-		/*
-		 * Print Button Action Listener
-		 */
-		printButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		printButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		printButton.setBounds(663, 539, 89, 23);
-		contentPane.add(printButton);
+		
 		
 		JLabel cardioLabel = new JLabel("Cardio Workout");
 		cardioLabel.setForeground(new Color(25, 25, 112));
@@ -94,45 +83,37 @@ public class MonthlyRecordsMenu extends JFrame {
 		cardioGraph.setBounds(10, 88, 168, 122);
 		contentPane.add(cardioGraph);
 		
-		Canvas strengthCanvas = new Canvas();
-		strengthCanvas.setBackground(new Color(230, 230, 250));
-		strengthCanvas.setBounds(205, 88, 168, 122);
-		contentPane.add(strengthCanvas);
+		ChartPanel strengthGraph = graphs.strengthGraph();
+		strengthGraph.setBounds(205, 88, 168, 122);
+		contentPane.add(strengthGraph);
 		
-		Canvas workCanvas = new Canvas();
-		workCanvas.setBackground(new Color(230, 230, 250));
-		workCanvas.setBounds(395, 88, 168, 122);
-		contentPane.add(workCanvas);
+		ChartPanel workGraph = graphs.workGraph();
+		workGraph.setBounds(395, 88, 168, 122);
+		contentPane.add(workGraph);
 		
-		Canvas sleepCanvas = new Canvas();
-		sleepCanvas.setBackground(new Color(230, 230, 250));
-		sleepCanvas.setBounds(584, 88, 168, 122);
-		contentPane.add(sleepCanvas);
+		ChartPanel sleepGraph = graphs.sleepGraph();
+		sleepGraph.setBounds(584, 88, 168, 122);
+		contentPane.add(sleepGraph);
 		
-		Canvas bloodPressureCanvas = new Canvas();
-		bloodPressureCanvas.setBackground(new Color(230, 230, 250));
-		bloodPressureCanvas.setBounds(10, 248, 168, 122);
-		contentPane.add(bloodPressureCanvas);
+		ChartPanel bloodPressureGraph = graphs.bloodPressureGraph();
+		bloodPressureGraph.setBounds(10, 248, 168, 122);
+		contentPane.add(bloodPressureGraph);
 		
-		Canvas bloodSugarCanvas = new Canvas();
-		bloodSugarCanvas.setBackground(new Color(230, 230, 250));
-		bloodSugarCanvas.setBounds(205, 248, 168, 122);
-		contentPane.add(bloodSugarCanvas);
+		ChartPanel bloodSugarGraph = graphs.bloodSugarGraph();
+		bloodSugarGraph.setBounds(205, 248, 168, 122);
+		contentPane.add(bloodSugarGraph);
 		
-		Canvas pulseRateCanvas = new Canvas();
-		pulseRateCanvas.setBackground(new Color(230, 230, 250));
-		pulseRateCanvas.setBounds(395, 248, 168, 122);
-		contentPane.add(pulseRateCanvas);
+		ChartPanel pulseRateGraph = graphs.pulseGraph();
+		pulseRateGraph.setBounds(395, 248, 168, 122);
+		contentPane.add(pulseRateGraph);
 		
-		Canvas weightCanvas = new Canvas();
-		weightCanvas.setBackground(new Color(230, 230, 250));
-		weightCanvas.setBounds(584, 248, 168, 122);
-		contentPane.add(weightCanvas);
+		ChartPanel weightGraph = graphs.weightGraph();
+		weightGraph.setBounds(584, 248, 168, 122);
+		contentPane.add(weightGraph);
 		
-		Canvas caloriesCanvas = new Canvas();
-		caloriesCanvas.setBackground(new Color(230, 230, 250));
-		caloriesCanvas.setBounds(10, 404, 168, 122);
-		contentPane.add(caloriesCanvas);
+		ChartPanel caloriesGraph = graphs.calorieGraph();
+		caloriesGraph.setBounds(10, 404, 168, 122);
+		contentPane.add(caloriesGraph);
 		
 		JLabel strengthLabel = new JLabel("Strength Workout");
 		strengthLabel.setForeground(new Color(25, 25, 112));
@@ -191,5 +172,19 @@ public class MonthlyRecordsMenu extends JFrame {
 		scoreLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 20));
 		scoreLabel.setBounds(205, 404, 129, 28);
 		contentPane.add(scoreLabel);
+		
+		
+		JButton printButton = new JButton("Print");
+		/*
+		 * Print Button Action Listener
+		 */
+		printButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.printAll(null);
+			}
+		});
+		printButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		printButton.setBounds(663, 539, 89, 23);
+		contentPane.add(printButton);
 	}
 }

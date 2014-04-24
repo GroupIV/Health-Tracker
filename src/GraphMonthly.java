@@ -4,10 +4,15 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.general.*;
 import org.jfree.data.time.*;
 
+import java.awt.Font;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class GraphMonthly {
@@ -100,6 +105,18 @@ public class GraphMonthly {
 				true,
 				false);
 		
+		XYPlot plot = (XYPlot) chart.getPlot();
+		DateAxis axis = (DateAxis) plot.getDomainAxis();
+		axis.setDateFormatOverride(new SimpleDateFormat("dd/MM"));
+		plot.getRangeAxis().setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		
+		Font font3 = new Font("Dialog", Font.BOLD, 14);
+		plot.getDomainAxis().setLabelFont(font3);
+		plot.getRangeAxis().setLabelFont(font3);
+		
+		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+		
+		renderer.setSeriesShapesVisible(0, true);
 		
 		ChartPanel panel = new ChartPanel(chart);
 		
@@ -113,13 +130,26 @@ public class GraphMonthly {
 		dataset.addSeries(series);
 		
 		JFreeChart chart = ChartFactory.createTimeSeriesChart (
-			graphTitle,
+			"",
 			"Date",
 			y,
 			dataset,
-			true,
+			false,
 			true,
 			false);
+		
+		XYPlot plot = (XYPlot) chart.getPlot();
+		DateAxis axis = (DateAxis) plot.getDomainAxis();
+		axis.setDateFormatOverride(new SimpleDateFormat("dd/MM"));
+		plot.getRangeAxis().setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		
+		Font font3 = new Font("Dialog", Font.BOLD, 14);
+		plot.getDomainAxis().setLabelFont(font3);
+		plot.getRangeAxis().setLabelFont(font3);
+		
+		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+		
+		renderer.setSeriesShapesVisible(0, true);
 		
 		ChartPanel panel = new ChartPanel(chart);
 		
