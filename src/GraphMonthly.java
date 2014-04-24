@@ -25,6 +25,8 @@ public class GraphMonthly {
 	//Constructor
 	GraphMonthly(List<DailyRecord> records) {
 		
+		Calendar currentDate = Calendar.getInstance();
+		
 		bloodSugar= new ArrayList<Double>();
 		calories = new ArrayList<Double>();
 		cardio = new ArrayList<Double>();
@@ -39,19 +41,22 @@ public class GraphMonthly {
 		
 		this.dailyRecords = records;
 		
+		//This for loop goes through all of the daily records and adds only the current month's records into the graphs.
 		for (int i = 0; i < dailyRecords.size(); i++) {
-			DailyRecord index = dailyRecords.get(i);
-			this.bloodSugar.add(index.getBloodSugar());
-			this.calories.add(index.getCaloriesConsumed());
-			this.cardio.add(index.getCardio());
-			this.diastolic.add(index.getDiastolicBP());
-			this.systolic.add(index.getSystolicBP());
-			this.pulse.add(index.getPulse());
-			this.sleep.add(index.getSleep());
-			this.strength.add(index.getStrength());
-			this.weight.add(index.getWeight());
-			this.work.add(index.getWork());
-			this.dates.add(new Date(index.getDate().getTimeInMillis()));
+			if (!dailyRecords.isEmpty() && dailyRecords.get(i).getDate().MONTH == currentDate.MONTH && dailyRecords.get(i).getDate().YEAR == currentDate.YEAR){
+				DailyRecord index = dailyRecords.get(i);
+				this.bloodSugar.add(index.getBloodSugar());
+				this.calories.add(index.getCaloriesConsumed());
+				this.cardio.add(index.getCardio());
+				this.diastolic.add(index.getDiastolicBP());
+				this.systolic.add(index.getSystolicBP());
+				this.pulse.add(index.getPulse());
+				this.sleep.add(index.getSleep());
+				this.strength.add(index.getStrength());
+				this.weight.add(index.getWeight());
+				this.work.add(index.getWork());
+				this.dates.add(new Date(index.getDate().getTimeInMillis()));
+			}
 		}
 		
 	}
@@ -88,6 +93,7 @@ public class GraphMonthly {
 		return this.createChartPanel(work, "Work Hours", "Work Hours", "Hours");
 	}
 
+	//Blood pressure graph was created separately because it needs to display two datasets on one graph.
 	ChartPanel bloodPressureGraph() {
 		TimeSeries series1 = this.generateSeries(dates, systolic, "SystolicBP");
 		TimeSeries series2 = this.generateSeries(dates, diastolic, "DiastolicBP");
