@@ -103,7 +103,7 @@ public class GraphMonthly {
 		dataset.addSeries(series2);
 		
 		JFreeChart chart = ChartFactory.createTimeSeriesChart(
-				"Blood Pressure",
+				"",
 				"Date",
 				"mmHg",
 				dataset,

@@ -18,9 +18,4 @@ public class MonthlyRecord {
 		return HealthScore;
 	}
 
-	public void pringMonthlyRecord() {
-		return;
-	}
-
-
 }

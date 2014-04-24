@@ -3,6 +3,8 @@
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,6 +23,7 @@ import org.jfree.chart.ChartPanel;
 import java.awt.Canvas;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.print.*;
 
 
 
@@ -179,12 +182,38 @@ public class MonthlyRecordsMenu extends JFrame {
 		 * Print Button Action Listener
 		 */
 		printButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				contentPane.printAll(null);
+			public void actionPerformed(ActionEvent ae) {
+                PrinterJob job = PrinterJob.getPrinterJob();
+                job.setPrintable(new Printable() {
+
+                    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                        if (pageIndex >= 1) {
+                            return Printable.NO_SUCH_PAGE;
+                        } else {
+                            Graphics2D g2d = (Graphics2D) graphics;
+                            g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+                            g2d.scale(0.5, 0.5);
+                            g2d.setPaint(Color.black);
+                            contentPane.print(graphics);
+                            return Printable.PAGE_EXISTS;
+                        }
+                    }
+                });
+                boolean ok =job.printDialog();
+                try {
+                    job.print();
+                    String PrintedStatus = "Confirmation was Successfully Printed on your Default Printer";
+                } catch (PrinterException ex) {
+                    ex.printStackTrace();
+                    String PrintedStatus = "Print failed";
+                }
 			}
-		});
+               
+        });
 		printButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		printButton.setBounds(663, 539, 89, 23);
 		contentPane.add(printButton);
 	}
+	
+	
 }
