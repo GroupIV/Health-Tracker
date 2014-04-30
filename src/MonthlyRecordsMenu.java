@@ -26,6 +26,7 @@ import java.awt.Canvas;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.print.*;
+import javax.swing.SwingConstants;
 
 
 
@@ -50,7 +51,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		setBackground(new Color(255, 255, 255));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 768, 600);
+		setBounds(100, 100, 768, 655);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -75,7 +76,7 @@ public class MonthlyRecordsMenu extends JFrame {
 			}
 		});
 		backButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		backButton.setBounds(10, 538, 134, 23);
+		backButton.setBounds(10, 593, 134, 23);
 		contentPane.add(backButton);
 		
 		
@@ -280,9 +281,63 @@ public class MonthlyRecordsMenu extends JFrame {
                
         });
 		printButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		printButton.setBounds(663, 539, 89, 23);
+		printButton.setBounds(663, 593, 89, 23);
 		contentPane.add(printButton);
+		
+		JLabel lblDoctorAddress = new JLabel("Doctor Address:");
+		lblDoctorAddress.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDoctorAddress.setForeground(new Color(25, 25, 112));
+		lblDoctorAddress.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblDoctorAddress.setBounds(10, 539, 96, 16);
+		contentPane.add(lblDoctorAddress);
+		
+		JLabel lblDoctorEmail = new JLabel("Doctor Email:");
+		lblDoctorEmail.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDoctorEmail.setForeground(new Color(25, 25, 112));
+		lblDoctorEmail.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblDoctorEmail.setBounds(10, 552, 96, 16);
+		contentPane.add(lblDoctorEmail);
+		
+		JLabel lblDoctorPhone = new JLabel("Doctor Phone:");
+		lblDoctorPhone.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDoctorPhone.setForeground(new Color(25, 25, 112));
+		lblDoctorPhone.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblDoctorPhone.setBounds(10, 566, 96, 16);
+		contentPane.add(lblDoctorPhone);
+		
+		JLabel lblDoctorName = new JLabel("Doctor Name:");
+		lblDoctorName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDoctorName.setForeground(new Color(25, 25, 112));
+		lblDoctorName.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblDoctorName.setBounds(10, 525, 96, 16);
+		contentPane.add(lblDoctorName);
+		
+		JLabel label = new JLabel(accountList.getCurrentAccount().getDoctor().getFirstName() + " " + accountList.getCurrentAccount().getDoctor().getLastName());
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setForeground(new Color(25, 25, 112));
+		label.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		label.setBounds(110, 525, 552, 16);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel(accountList.getCurrentAccount().getDoctor().getAddress());
+		label_1.setHorizontalAlignment(SwingConstants.LEFT);
+		label_1.setForeground(new Color(25, 25, 112));
+		label_1.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		label_1.setBounds(110, 539, 552, 16);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel(accountList.getCurrentAccount().getDoctor().getEmail());
+		label_2.setHorizontalAlignment(SwingConstants.LEFT);
+		label_2.setForeground(new Color(25, 25, 112));
+		label_2.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		label_2.setBounds(110, 552, 552, 16);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel(accountList.getCurrentAccount().getDoctor().getPhoneNumber());
+		label_3.setHorizontalAlignment(SwingConstants.LEFT);
+		label_3.setForeground(new Color(25, 25, 112));
+		label_3.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		label_3.setBounds(110, 566, 552, 16);
+		contentPane.add(label_3);
 	}
-	
-	
 }
