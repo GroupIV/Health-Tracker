@@ -263,28 +263,39 @@ public class EnterInformationMenu extends JFrame {
 								    "Input error",
 								    JOptionPane.ERROR_MESSAGE);
 						}
-						else{
-							
-							//Attempt to add account
-							//Check if the amount of accounts has hit the limit (20).
-							if (true){
-								if(accountList.getCurrentAccount().addDailyRecord(new DailyRecord(tempCardio, tempStrength, tempWork,
-										tempSleep, tempSystolic, tempDiastolic,
-										tempWeight, tempCalories, tempBloodSugar,
-										tempPulse))){
-									accountList.saveAccountList();
-									ctrl.openMainFrame();
-									setVisible(false);
-									dispose();						
-								}
-								else{
-									JOptionPane.showMessageDialog(EnterInformationMenu.this,
-										    "Daily Record Already Exists For Today.",
-										    "DailyRecord Error",
-										    JOptionPane.ERROR_MESSAGE);
-								}
+						else
+						{
+							//Check if time values are correct
+							if (tempWork + tempSleep + tempStrength + tempCardio != 24)
+							{
+								JOptionPane.showMessageDialog(EnterInformationMenu.this,
+									    "Time spent during activities does not add up to 24 hours.",
+									    "Input error",
+									    JOptionPane.ERROR_MESSAGE);								
 							}
-						}	
+							else
+							{
+								//Attempt to add account
+								//Check if the amount of accounts has hit the limit (20).
+								if (true){
+									if(accountList.getCurrentAccount().addDailyRecord(new DailyRecord(tempCardio, tempStrength, tempWork,
+											tempSleep, tempSystolic, tempDiastolic,
+											tempWeight, tempCalories, tempBloodSugar,
+											tempPulse))){
+										accountList.saveAccountList();
+										ctrl.openMainFrame();
+										setVisible(false);
+										dispose();						
+									}
+									else{
+										JOptionPane.showMessageDialog(EnterInformationMenu.this,
+											    "Daily Record Already Exists For Today.",
+											    "DailyRecord Error",
+											    JOptionPane.ERROR_MESSAGE);
+									}
+								}	
+							}
+						}
 					} catch (NumberFormatException ne){
 						JOptionPane.showMessageDialog(EnterInformationMenu.this,
 							    "Incorrect value types entered.",
