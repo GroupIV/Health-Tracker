@@ -262,7 +262,7 @@ public class MonthlyRecordsMenu extends JFrame {
                         } else {
                             Graphics2D g2d = (Graphics2D) graphics;
                             g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-                            g2d.scale(0.5, 0.5);
+                            g2d.scale(0.7, 0.7);
                             g2d.setPaint(Color.black);
                             contentPane.print(graphics);
                             return Printable.PAGE_EXISTS;
