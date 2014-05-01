@@ -78,15 +78,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		backButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		backButton.setBounds(10, 593, 134, 23);
 		contentPane.add(backButton);
-		
-		
-		
-		JLabel cardioLabel = new JLabel("Cardio Workout");
-		cardioLabel.setForeground(new Color(25, 25, 112));
-		cardioLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		cardioLabel.setBounds(10, 59, 121, 23);
-		contentPane.add(cardioLabel);
-		
+		/*
 		ChartPanel cardioGraph = graphs.cardioGraph();
 		cardioGraph.setBounds(10, 88, 168, 122);
 		contentPane.add(cardioGraph);
@@ -102,13 +94,13 @@ public class MonthlyRecordsMenu extends JFrame {
 		ChartPanel sleepGraph = graphs.sleepGraph();
 		sleepGraph.setBounds(584, 88, 168, 122);
 		contentPane.add(sleepGraph);
-		
+		*/
 		ChartPanel bloodPressureGraph = graphs.bloodPressureGraph();
-		bloodPressureGraph.setBounds(10, 248, 168, 122);
+		bloodPressureGraph.setBounds(395, 88, 168, 122);
 		contentPane.add(bloodPressureGraph);
 		
 		ChartPanel bloodSugarGraph = graphs.bloodSugarGraph();
-		bloodSugarGraph.setBounds(205, 248, 168, 122);
+		bloodSugarGraph.setBounds(584, 88, 168, 122);
 		contentPane.add(bloodSugarGraph);
 		
 		ChartPanel pulseRateGraph = graphs.pulseGraph();
@@ -123,34 +115,22 @@ public class MonthlyRecordsMenu extends JFrame {
 		caloriesGraph.setBounds(10, 404, 168, 122);
 		contentPane.add(caloriesGraph);
 		
-		JLabel strengthLabel = new JLabel("Strength Workout");
+		JLabel strengthLabel = new JLabel("Average Hour Distribution");
 		strengthLabel.setForeground(new Color(25, 25, 112));
 		strengthLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		strengthLabel.setBounds(205, 59, 129, 23);
+		strengthLabel.setBounds(103, 59, 180, 23);
 		contentPane.add(strengthLabel);
-		
-		JLabel workLabel = new JLabel("Work Hours");
-		workLabel.setForeground(new Color(25, 25, 112));
-		workLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		workLabel.setBounds(395, 59, 121, 23);
-		contentPane.add(workLabel);
-		
-		JLabel sleepLabel = new JLabel("Sleep Hours");
-		sleepLabel.setForeground(new Color(25, 25, 112));
-		sleepLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		sleepLabel.setBounds(584, 59, 121, 23);
-		contentPane.add(sleepLabel);
 		
 		JLabel bloodPressureLabel = new JLabel("Blood Pressure");
 		bloodPressureLabel.setForeground(new Color(25, 25, 112));
 		bloodPressureLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		bloodPressureLabel.setBounds(10, 219, 121, 23);
+		bloodPressureLabel.setBounds(395, 59, 121, 23);
 		contentPane.add(bloodPressureLabel);
 		
 		JLabel bloodSugarLabel = new JLabel("Blood Sugar");
 		bloodSugarLabel.setForeground(new Color(25, 25, 112));
 		bloodSugarLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
-		bloodSugarLabel.setBounds(205, 219, 121, 23);
+		bloodSugarLabel.setBounds(584, 59, 121, 23);
 		contentPane.add(bloodSugarLabel);
 		
 		JLabel pulseRateLabel = new JLabel("Pulse Rate");
@@ -403,5 +383,9 @@ public class MonthlyRecordsMenu extends JFrame {
 		label_7.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		label_7.setBounds(477, 566, 228, 16);
 		contentPane.add(label_7);
+		
+		JPanel pieGraphPanel = new JPanel();
+		pieGraphPanel.setBounds(10, 87, 359, 278);
+		contentPane.add(pieGraphPanel);
 	}
 }
