@@ -156,6 +156,10 @@ public class GraphMonthly {
 		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
 		
 		renderer.setSeriesShapesVisible(0, true);
+		renderer.setSeriesShapesVisible(1, true);
+		
+		renderer.setSeriesLinesVisible(0, true);
+		renderer.setSeriesLinesVisible(1, true);
 		
 		ChartPanel panel = new ChartPanel(chart);
 		
