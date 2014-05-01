@@ -9,7 +9,7 @@ public class MonthlyRecord {
 	
 	// Data
 	List <DailyRecord> records;
-	public ArrayList <Double> bloodSugar, calories, cardio, diastolic, systolic, pulse, sleep, strength, weight, work;
+	private ArrayList <Double> bloodSugar, calories, cardio, diastolic, systolic, pulse, sleep, strength, weight, work;
 
 	public MonthlyRecord(List<DailyRecord> newRecords){
 		bloodSugar= new ArrayList<Double>();
@@ -40,6 +40,19 @@ public class MonthlyRecord {
 			
 	}
 	
+	public ArrayList<Double> getStrengthList() {
+		return strength;
+	}
+	
+	public ArrayList<Double> getCardioList() {
+		return cardio;
+	}
+	public ArrayList<Double> getSleepList() {
+		return sleep;
+	}
+	public ArrayList<Double> getWorkList() {
+		return work;
+	}
 	
 	
 	public String bloodSugarAverage() {

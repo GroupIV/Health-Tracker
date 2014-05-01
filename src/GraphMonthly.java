@@ -69,10 +69,10 @@ public class GraphMonthly {
 	
 	ChartPanel pieGraph () {
 		DefaultPieDataset objDataset = new DefaultPieDataset();
-		objDataset.setValue("Strength", averageRecords.average(averageRecords.strength));
-		objDataset.setValue("Sleep", averageRecords.average(averageRecords.sleep));
-		objDataset.setValue("Cardio", averageRecords.average(averageRecords.cardio));
-		objDataset.setValue("Work", averageRecords.average(averageRecords.work));
+		objDataset.setValue("Strength", averageRecords.average(averageRecords.getStrengthList()));
+		objDataset.setValue("Sleep", averageRecords.average(averageRecords.getSleepList()));
+		objDataset.setValue("Cardio", averageRecords.average(averageRecords.getCardioList()));
+		objDataset.setValue("Work", averageRecords.average(averageRecords.getWorkList()));
 		
 		
 		JFreeChart objChart = ChartFactory.createPieChart(
@@ -218,5 +218,7 @@ public class GraphMonthly {
 		return pop;
 	
 	}
+	 
+	
 
 }
