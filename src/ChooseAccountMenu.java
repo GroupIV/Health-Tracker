@@ -1,9 +1,6 @@
 //Name: ChooseAccountMenu
 //Description: Defines the JFrame for the choose account menu.
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,6 +18,7 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class ChooseAccountMenu extends JFrame {
 
 	private JPanel contentPane;

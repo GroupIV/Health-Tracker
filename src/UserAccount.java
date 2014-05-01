@@ -4,6 +4,7 @@
 import java.util.*;
 import java.io.Serializable;
 
+@SuppressWarnings({ "serial", "rawtypes" })
 public class UserAccount implements Comparable, Serializable{
 	
 //Data

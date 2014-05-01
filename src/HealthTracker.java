@@ -1,11 +1,7 @@
 //Name: HealthTracker
 //Description: Contains the main function and the list of accounts. Also contains all the menus in this iteration.
 
-import java.util.*;
 import java.awt.EventQueue;
-import java.io.*;
-
-import javax.swing.JFrame;
 
 
 public class HealthTracker {

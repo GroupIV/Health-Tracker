@@ -1,8 +1,6 @@
 //Name: MonthlyRecordsMenu
 //Description: Defines the JFrame for the monthly records menu.
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -22,7 +20,6 @@ import javax.swing.JButton;
 
 import org.jfree.chart.ChartPanel;
 
-import java.awt.Canvas;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.print.*;
@@ -30,6 +27,7 @@ import javax.swing.SwingConstants;
 
 
 
+@SuppressWarnings("serial")
 public class MonthlyRecordsMenu extends JFrame {
 
 	private JPanel contentPane;
@@ -233,13 +231,16 @@ public class MonthlyRecordsMenu extends JFrame {
                         }
                     }
                 });
-                boolean ok = job.printDialog();
+                @SuppressWarnings("unused")
+				boolean ok = job.printDialog();
                 try {
                     job.print();
-                    String PrintedStatus = "Confirmation was Successfully Printed on your Default Printer";
+                    @SuppressWarnings("unused")
+					String PrintedStatus = "Confirmation was Successfully Printed on your Default Printer";
                 } catch (PrinterException ex) {
                     ex.printStackTrace();
-                    String PrintedStatus = "Print failed";
+                    @SuppressWarnings("unused")
+					String PrintedStatus = "Print failed";
                 }
 			}
                

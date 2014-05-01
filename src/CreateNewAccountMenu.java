@@ -1,9 +1,6 @@
 //Name: CreateNewAccountMenu
 //Description: Defines the JFrame for the create new account menu.
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,18 +9,16 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.text.NumberFormat;
-
 import javax.swing.ButtonGroup;
 
 
+@SuppressWarnings("serial")
 public class CreateNewAccountMenu extends JFrame {
 
 	private JPanel contentPane;

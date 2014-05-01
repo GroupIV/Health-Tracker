@@ -5,6 +5,7 @@
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class DoctorInfo implements Serializable {
 	
 	//Attributes

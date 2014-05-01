@@ -4,6 +4,7 @@
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("serial")
 public class UserAccountList implements Serializable {
 
 	//Attributes
@@ -143,6 +144,7 @@ public class UserAccountList implements Serializable {
         }
 	}
 
+	@SuppressWarnings("unchecked")
 	public void loadAccountList(){
 		
 		String filename = "persistantList";
