@@ -49,7 +49,7 @@ public class GraphMonthly {
 		
 		//This for loop goes through all of the daily records and adds only the current month's records into the graphs.
 		for (int i = 0; i < dailyRecords.size(); i++) {
-			if (!dailyRecords.isEmpty() && dailyRecords.get(i).getDate().MONTH == currentDate.MONTH && dailyRecords.get(i).getDate().YEAR == currentDate.YEAR){
+			if (!dailyRecords.isEmpty() && dailyRecords.get(i).getDate().get(Calendar.MONTH) == currentDate.get(Calendar.MONTH) && dailyRecords.get(i).getDate().get(Calendar.YEAR) == currentDate.get(Calendar.YEAR)){
 				DailyRecord index = dailyRecords.get(i);
 				this.bloodSugar.add(index.getBloodSugar());
 				this.calories.add(index.getCaloriesConsumed());

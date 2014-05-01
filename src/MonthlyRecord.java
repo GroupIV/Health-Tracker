@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 //CSE 360 Group IV Project "Health Tracker"
@@ -12,6 +13,9 @@ public class MonthlyRecord {
 	private ArrayList <Double> bloodSugar, calories, cardio, diastolic, systolic, pulse, sleep, strength, weight, work;
 
 	public MonthlyRecord(List<DailyRecord> newRecords){
+		
+		Calendar currentDate = Calendar.getInstance();
+		
 		bloodSugar= new ArrayList<Double>();
 		calories = new ArrayList<Double>();
 		cardio = new ArrayList<Double>();
@@ -23,19 +27,22 @@ public class MonthlyRecord {
 		weight = new ArrayList<Double>();
 		work = new ArrayList<Double>();
 		
+		
 		records = newRecords;
 		for (int m = 0; m < records.size(); m++){
-			DailyRecord index = records.get(m);
-			this.bloodSugar.add(index.getBloodSugar());
-			this.calories.add(index.getCaloriesConsumed());
-			this.cardio.add(index.getCardio());
-			this.diastolic.add(index.getDiastolicBP());
-			this.systolic.add(index.getSystolicBP());
-			this.pulse.add(index.getPulse());
-			this.sleep.add(index.getSleep());
-			this.strength.add(index.getStrength());
-			this.weight.add(index.getWeight());
-			this.work.add(index.getWork());
+			if (!records.isEmpty() && records.get(m).getDate().get(Calendar.MONTH) == currentDate.get(Calendar.MONTH) && records.get(m).getDate().get(Calendar.YEAR) == currentDate.get(Calendar.YEAR)){
+				DailyRecord index = records.get(m);
+				this.bloodSugar.add(index.getBloodSugar());
+				this.calories.add(index.getCaloriesConsumed());
+				this.cardio.add(index.getCardio());
+				this.diastolic.add(index.getDiastolicBP());
+				this.systolic.add(index.getSystolicBP());
+				this.pulse.add(index.getPulse());
+				this.sleep.add(index.getSleep());
+				this.strength.add(index.getStrength());
+				this.weight.add(index.getWeight());
+				this.work.add(index.getWork());
+			}
 		}
 			
 	}
