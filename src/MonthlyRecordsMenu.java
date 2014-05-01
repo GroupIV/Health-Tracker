@@ -384,7 +384,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		label_7.setBounds(477, 566, 228, 16);
 		contentPane.add(label_7);
 		
-		JPanel pieGraphPanel = new JPanel();
+		ChartPanel pieGraphPanel = graphs.pieGraph();
 		pieGraphPanel.setBounds(10, 87, 359, 278);
 		contentPane.add(pieGraphPanel);
 	}

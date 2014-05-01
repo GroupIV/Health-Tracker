@@ -21,6 +21,7 @@ public class GraphMonthly {
 	
 	private ArrayList <Double> bloodSugar, calories, cardio, diastolic, systolic, pulse, sleep, strength, weight, work;
 	private ArrayList <Date> dates;
+	private MonthlyRecord averageRecords;
 	
 	//Constructor
 	GraphMonthly(List<DailyRecord> records) {
@@ -39,7 +40,10 @@ public class GraphMonthly {
 		work = new ArrayList<Double>();
 		dates = new ArrayList<Date>();
 		
+		
 		this.dailyRecords = records;
+		
+		this.averageRecords = new MonthlyRecord(records);
 		
 		//This for loop goes through all of the daily records and adds only the current month's records into the graphs.
 		for (int i = 0; i < dailyRecords.size(); i++) {
@@ -59,6 +63,26 @@ public class GraphMonthly {
 			}
 		}
 		
+	}
+	
+	ChartPanel pieGraph () {
+		DefaultPieDataset objDataset = new DefaultPieDataset();
+		objDataset.setValue("Strength", averageRecords.average(averageRecords.strength));
+		objDataset.setValue("Sleep", averageRecords.average(averageRecords.sleep));
+		objDataset.setValue("Cardio", averageRecords.average(averageRecords.cardio));
+		objDataset.setValue("Work", averageRecords.average(averageRecords.work));
+		
+		JFreeChart objChart = ChartFactory.createPieChart(
+				"",
+				objDataset,
+				true,
+				true,
+				false
+				);
+		
+		ChartPanel panel = new ChartPanel(objChart);
+		
+		return panel;
 	}
 	
 	ChartPanel bloodSugarGraph (){
