@@ -80,7 +80,7 @@ public boolean addDailyRecord(DailyRecord newDailyRecord)
 {
 	Calendar currentDay = Calendar.getInstance();
 	
-	if (dailyRecords.isEmpty() || (dailyRecords.get(dailyRecords.size()-1).getDate().DAY_OF_YEAR != currentDay.DAY_OF_YEAR && dailyRecords.get(dailyRecords.size()-1).getDate().YEAR == currentDay.YEAR)){
+	if (dailyRecords.isEmpty() || (dailyRecords.get(dailyRecords.size()-1).getDate().get(Calendar.DAY_OF_YEAR) != currentDay.get(Calendar.DAY_OF_YEAR) && dailyRecords.get(dailyRecords.size()-1).getDate().get(Calendar.YEAR) == currentDay.get(Calendar.YEAR))){
 		dailyRecords.add(newDailyRecord);
 		return true;
 	}
