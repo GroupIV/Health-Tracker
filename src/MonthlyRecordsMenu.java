@@ -78,23 +78,7 @@ public class MonthlyRecordsMenu extends JFrame {
 		backButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		backButton.setBounds(10, 593, 134, 23);
 		contentPane.add(backButton);
-		/*
-		ChartPanel cardioGraph = graphs.cardioGraph();
-		cardioGraph.setBounds(10, 88, 168, 122);
-		contentPane.add(cardioGraph);
-		
-		ChartPanel strengthGraph = graphs.strengthGraph();
-		strengthGraph.setBounds(205, 88, 168, 122);
-		contentPane.add(strengthGraph);
-		
-		ChartPanel workGraph = graphs.workGraph();
-		workGraph.setBounds(395, 88, 168, 122);
-		contentPane.add(workGraph);
-		
-		ChartPanel sleepGraph = graphs.sleepGraph();
-		sleepGraph.setBounds(584, 88, 168, 122);
-		contentPane.add(sleepGraph);
-		*/
+
 		ChartPanel bloodPressureGraph = graphs.bloodPressureGraph();
 		bloodPressureGraph.setBounds(395, 88, 168, 122);
 		contentPane.add(bloodPressureGraph);

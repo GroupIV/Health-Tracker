@@ -6,11 +6,13 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.general.*;
 import org.jfree.data.time.*;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -72,6 +74,7 @@ public class GraphMonthly {
 		objDataset.setValue("Cardio", averageRecords.average(averageRecords.cardio));
 		objDataset.setValue("Work", averageRecords.average(averageRecords.work));
 		
+		
 		JFreeChart objChart = ChartFactory.createPieChart(
 				"",
 				objDataset,
@@ -79,6 +82,12 @@ public class GraphMonthly {
 				true,
 				false
 				);
+		
+		PiePlot plot = (PiePlot)objChart.getPlot();
+		plot.setSectionPaint("Strength", new Color(11,95,165));
+		plot.setSectionPaint("Sleep", new Color(4,60,107));
+		plot.setSectionPaint("Cardio", new Color(63,143,210));
+		plot.setSectionPaint("Work", new Color(102,161,210));
 		
 		ChartPanel panel = new ChartPanel(objChart);
 		
