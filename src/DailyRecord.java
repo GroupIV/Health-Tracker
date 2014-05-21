@@ -5,6 +5,7 @@
 import java.util.Calendar;
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class DailyRecord implements Serializable {
 	// Attributes
 	private Calendar submittedDate; 

@@ -4,26 +4,52 @@
 import java.util.*;
 import java.io.Serializable;
 
+@SuppressWarnings({ "serial", "rawtypes" })
 public class UserAccount implements Comparable, Serializable{
 	
 //Data
 	String firstName;
 	String lastName;
 	int age;
+	int height;
 	boolean gender;
 	List<DailyRecord> dailyRecords;
 	DoctorInfo doctor;
 	Calendar activationDate;
 	
-public UserAccount(String newFirstName, String newLastName, int newAge, boolean newGender, DoctorInfo newDoctor)
+public UserAccount(String newFirstName, String newLastName, int newAge, int newHeight, boolean newGender, DoctorInfo newDoctor)
 {
 	firstName = newFirstName;
 	lastName = newLastName;
 	age = newAge;
+	height = newHeight;
 	gender = newGender;
 	doctor = newDoctor;
 	activationDate = Calendar.getInstance();
 	dailyRecords = new ArrayList<DailyRecord>();
+}
+
+public UserAccount(String newFirstName, String newLastName){
+	firstName = newFirstName;
+	lastName = newLastName;
+	age = 0;
+	height = 0;
+	gender = true;
+	doctor = new DoctorInfo();
+	activationDate = Calendar.getInstance();
+	dailyRecords = new ArrayList<DailyRecord>();	
+}
+
+public UserAccount()
+{
+	firstName = "FName";
+	lastName = "LName";
+	age = 0;
+	height = 0;
+	gender = true;
+	doctor = new DoctorInfo();
+	activationDate = Calendar.getInstance();
+	dailyRecords = new ArrayList<DailyRecord>();	
 }
 
 public String getLastName()
@@ -41,6 +67,11 @@ public int getAge()
 	return age;
 }
 
+public int getHeight()
+{
+	return height;
+}
+
 public boolean getGender()
 {
 	return gender;
@@ -50,7 +81,7 @@ public boolean addDailyRecord(DailyRecord newDailyRecord)
 {
 	Calendar currentDay = Calendar.getInstance();
 	
-	if (dailyRecords.isEmpty() || dailyRecords.get(dailyRecords.size()).getDate().DAY_OF_YEAR != currentDay.DAY_OF_YEAR && dailyRecords.get(dailyRecords.size()).getDate().YEAR == currentDay.YEAR){
+	if (dailyRecords.isEmpty() || (dailyRecords.get(dailyRecords.size()-1).getDate().get(Calendar.DAY_OF_YEAR) != currentDay.get(Calendar.DAY_OF_YEAR) && dailyRecords.get(dailyRecords.size()-1).getDate().get(Calendar.YEAR) == currentDay.get(Calendar.YEAR))){
 		dailyRecords.add(newDailyRecord);
 		return true;
 	}

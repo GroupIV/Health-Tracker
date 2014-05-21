@@ -5,6 +5,7 @@
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class DoctorInfo implements Serializable {
 	
 	//Attributes
@@ -22,6 +23,14 @@ public class DoctorInfo implements Serializable {
 		this.address = address;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+	}
+	
+	public DoctorInfo (){
+		this.firstName = "DFName";
+		this.lastName = "DLName";
+		this.address = "DAddress";
+		this.email = "DEmail";
+		this.phoneNumber = "DPhone";		
 	}
 	
 	//Methods
