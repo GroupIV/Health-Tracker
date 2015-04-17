@@ -1,4 +1,3 @@
-
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -72,7 +71,9 @@ public class GraphMonthly {
 		objDataset.setValue("Cardio", averageRecords.average(averageRecords.getCardioList()));
 		objDataset.setValue("Work", averageRecords.average(averageRecords.getWorkList()));
 		
-		
+		// Added Calories as a graph to better represent the amount of calories consumed during the month
+		objDataset.setValue("Calories", averageRecords.average(averageRecords.getCaloriesList()));
+
 		JFreeChart objChart = ChartFactory.createPieChart(
 				"",
 				objDataset,
@@ -87,6 +88,9 @@ public class GraphMonthly {
 		plot.setSectionPaint("Cardio", new Color(63,143,210));
 		plot.setSectionPaint("Work", new Color(102,161,210));
 		
+		// Added pie graph for calories and set the color as green2 in RGB
+		plot.setSectionPaint("Calories", new Color(0,238,0));
+
 		ChartPanel panel = new ChartPanel(objChart);
 		
 		return panel;
@@ -124,46 +128,19 @@ public class GraphMonthly {
 		return this.createChartPanel(work, "Work Hours", "Work Hours", "Hours");
 	}
 
-	//Blood pressure graph was created separately because it needs to display two datasets on one graph.
-	ChartPanel bloodPressureGraph() {
-		TimeSeries series1 = this.generateSeries(dates, systolic, "SystolicBP");
-		TimeSeries series2 = this.generateSeries(dates, diastolic, "DiastolicBP");
-		
-		TimeSeriesCollection dataset = new TimeSeriesCollection();
-		dataset.addSeries(series1);
-		dataset.addSeries(series2);
-		
-		JFreeChart chart = ChartFactory.createTimeSeriesChart(
-				"",
-				"Date",
-				"mmHg",
-				dataset,
-				true,
-				true,
-				false);
-		
-		XYPlot plot = (XYPlot) chart.getPlot();
-		DateAxis axis = (DateAxis) plot.getDomainAxis();
-		axis.setDateFormatOverride(new SimpleDateFormat("dd/MM"));
-		plot.getRangeAxis().setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-		
-		Font font3 = new Font("Dialog", Font.BOLD, 14);
-		plot.getDomainAxis().setLabelFont(font3);
-		plot.getRangeAxis().setLabelFont(font3);
-		
-		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
-		
-		renderer.setSeriesShapesVisible(0, true);
-		renderer.setSeriesShapesVisible(1, true);
-		
-		renderer.setSeriesLinesVisible(0, true);
-		renderer.setSeriesLinesVisible(1, true);
-		
-		ChartPanel panel = new ChartPanel(chart);
-		
-		return panel;
-		
+
+	// Blood pressure is broken back into two seperate grpahs to allow the user to better visualize the data on a smaller scope
+	// Changed graph Y-axis title
+	ChartPanel diastolicGraph() {
+		return this.createChartPanel(diastolic, "Diastolic", "Diastolic", "Time");
 	}
+
+	ChartPanel systolicGraph() {
+		return this.createChartPanel(diastolic, "Systolic", "Systolic", "Time");
+	}
+
+	
+
 	
 	ChartPanel createChartPanel (ArrayList<Double> data, String seriesTitle, String graphTitle, String y) {
 		TimeSeries series = this.generateSeries(dates, data, seriesTitle);
