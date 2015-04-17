@@ -87,6 +87,8 @@ public class GraphMonthly {
 		plot.setSectionPaint("Sleep", new Color(4,60,107));
 		plot.setSectionPaint("Cardio", new Color(63,143,210));
 		plot.setSectionPaint("Work", new Color(102,161,210));
+		
+		// Added pie graph for calories and set the color as green2 in RGB
 		plot.setSectionPaint("Calories", new Color(0,238,0));
 
 		ChartPanel panel = new ChartPanel(objChart);
@@ -128,12 +130,13 @@ public class GraphMonthly {
 
 
 	// Blood pressure is broken back into two seperate grpahs to allow the user to better visualize the data on a smaller scope
+	// Changed graph Y-axis title
 	ChartPanel diastolicGraph() {
-		return this.createChartPanel(diastolic, "Diastolic", "Diastolic", "Diastolic");
+		return this.createChartPanel(diastolic, "Diastolic", "Diastolic", "Time");
 	}
 
 	ChartPanel systolicGraph() {
-		return this.createChartPanel(diastolic, "Systolic", "Systolic", "Systolic");
+		return this.createChartPanel(diastolic, "Systolic", "Systolic", "Time");
 	}
 
 	
