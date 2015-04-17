@@ -77,9 +77,20 @@ public class MonthlyRecordsMenu extends JFrame {
 		backButton.setBounds(10, 593, 134, 23);
 		contentPane.add(backButton);
 
+/*
 		ChartPanel bloodPressureGraph = graphs.bloodPressureGraph();
 		bloodPressureGraph.setBounds(395, 88, 168, 122);
 		contentPane.add(bloodPressureGraph);
+*/
+
+		// Added new chart panels to display newly seperated diastolic and systolic blood preesures for easier visuals
+		ChartPanel diastolicGraph = graphs.diastolicGraph();
+		diastolicGraph.setBounds(395, 88, 168, 122);
+		contentPane.add(diastolicGraph);
+
+		ChartPanel systolicGraph = graphs.systolicGraph();
+		systolicGraph.setBounds(395, 88, 168, 122);
+		contentPane.add(systolicGraph);
 		
 		ChartPanel bloodSugarGraph = graphs.bloodSugarGraph();
 		bloodSugarGraph.setBounds(584, 88, 168, 122);
@@ -102,13 +113,29 @@ public class MonthlyRecordsMenu extends JFrame {
 		strengthLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
 		strengthLabel.setBounds(103, 59, 180, 23);
 		contentPane.add(strengthLabel);
-		
+
+/*		
 		JLabel bloodPressureLabel = new JLabel("Blood Pressure");
 		bloodPressureLabel.setForeground(new Color(25, 25, 112));
 		bloodPressureLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
 		bloodPressureLabel.setBounds(395, 59, 121, 23);
 		contentPane.add(bloodPressureLabel);
+*/
+
+		// Added new Jlabel to display newly seperated diastolic and systolic blood preesures for easier visuals
+		JLabel diastolicLabel = new JLabel("Diastolic");
+		diastolicLabel.setForeground(new Color(25, 25, 112));
+		diastolicLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
+		diastolicLabel.setBounds(395, 59, 121, 23);
+		contentPane.add(diastolicLabel);
+
+		JLabel systolicLabel = new JLabel("Systolic");
+		systolicLabel.setForeground(new Color(25, 25, 112));
+		systolicLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
+		systolicLabel.setBounds(395, 59, 121, 23);
+		contentPane.add(systolicLabel);
 		
+				
 		JLabel bloodSugarLabel = new JLabel("Blood Sugar");
 		bloodSugarLabel.setForeground(new Color(25, 25, 112));
 		bloodSugarLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
